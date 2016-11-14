@@ -1,0 +1,50 @@
+<!-- Application Purpose: To retrieve weather data on the city Bujumbura, Burundi  using the OpenWeatherMap API-->
+<html>
+<head>
+  <title>Weather Underground Data</title>
+   <script 
+    src='http://code.jquery.com/jquery-2.1.3.min.js'>
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">   
+  </script>
+</head>
+<body>
+  
+  <!-- Retrieved Data will be dumped here -->
+  <div class="city"></div>
+  <div class="wind"></div>
+  <div class="humidity"></div>
+  <div class="temp"></div>
+
+ 
+  <script type="text/javascript">
+   // This is our API Key
+    var APIKey = "bc980387c56eb3ec";
+
+    var state = "FL"
+
+    var city = "Orlando"
+    // Here we are building the URL we need to query the database
+    var queryURL = "http://api.wunderground.com/api/"+ APIKey +"/geolookup/conditions/q/"+ state +"/" + city + ".json";
+
+    $(document).ready(function($) 
+    {
+        $.ajax(
+            {
+                url : queryURL ,
+                dataType : "jsonp",
+                success : function(parsed_json) 
+                {
+                    console.log(parsed_json);
+                    var location = parsed_json['location']['city'];
+                    var temp_f = parsed_json['current_observation']['temp_f'];
+                    alert("Current temperature in " + location + " is: " + temp_f);
+                }
+        });
+    });
+  </script>
+
+
+</body>
+</html>
+
