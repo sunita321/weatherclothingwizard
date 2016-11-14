@@ -25,23 +25,36 @@
 
     var city = "Orlando"
     // Here we are building the URL we need to query the database
-    var queryURL = "http://api.wunderground.com/api/"+ APIKey +"/geolookup/conditions/q/"+ state +"/" + city + ".json";
+    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/conditions/q/FL/Orlando.json";
 
-    $(document).ready(function($) 
-    {
-        $.ajax(
-            {
-                url : queryURL ,
-                dataType : "jsonp",
-                success : function(parsed_json) 
-                {
-                    console.log(parsed_json);
-                    var location = parsed_json['location']['city'];
-                    var temp_f = parsed_json['current_observation']['temp_f'];
-                    alert("Current temperature in " + location + " is: " + temp_f);
-                }
-        });
-    });
+
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({url: queryURL, method: 'GET'})
+
+    // We store all of the retrieved data inside of an object called "response"
+    .done(function(response) {
+
+      // Log the queryURL
+      console.log(queryURL);
+
+      // Log the resulting object
+      console.log(response);
+
+
+      // Transfer content to HTML
+      $('.city').html("<h1>Orlando Weather Details</h1>");
+      $(".temp").html("Temperature (C) " + response.current_observation.temp_c);
+
+      // Log the data in the console as well
+   
+    console.log("Temperature (C): " + response.current_observation.temp_c);
+
+    var Icon = response.current_observation.icon_url;
+
+    var image = $("<img>").attr("src", Icon); //Passes still image link to the image src
+
+    $(".temp").append(image);
+    }); 
   </script>
 
 
