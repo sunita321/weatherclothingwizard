@@ -23,9 +23,9 @@
 
     var state = "FL"
 
-    var city = "Orlando"
+    var city = "Melbourne"
     // Here we are building the URL we need to query the database
-    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/conditions/q/FL/Orlando.json";
+    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/conditions/q/" + state + "/" + city + ".json";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API
@@ -42,7 +42,7 @@
 
 
       // Transfer content to HTML
-      $('.city').html("<h1>Orlando Weather Details</h1>");
+      $('.city').html(city);
       $(".temp").html("Temperature (C) " + response.current_observation.temp_c);
 
       // Log the data in the console as well
