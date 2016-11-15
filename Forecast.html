@@ -1,5 +1,6 @@
 
-<!-- Application Purpose: To retrieve weather data -->
+
+<!-- Application Purpose: To retrieve weather data on the city Bujumbura, Burundi  using the OpenWeatherMap API-->
 <html>
 <head>
   <title>Weather Underground Data</title>
@@ -11,7 +12,7 @@
   <!-- Retrieved Data will be dumped here -->
   <div class="city"></div>
   <div class="wind"></div>
-  <div class="humidity"></div>
+  <div class="forecast"></div>
   <div class="tempNow"></div>
 
  
@@ -22,38 +23,36 @@
     var state = "FL"
 
     var city = "Melbourne"
-
-    var zip = "32901"
     // Here we are building the URL we need to query the database
-    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/conditions/q/" + zip +".json";
+    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/forecast/q/CA/San_Francisco.json";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({url: queryURL, method: 'GET'})
 
     // We store all of the retrieved data inside of an object called "response"
-    .done(function(conditions) {
+    .done(function(response) {
 
       // Log the queryURL
       console.log(queryURL);
 
       // Log the resulting object
-      console.log(conditions);
+      console.log(response);
 
 
       // Transfer content to HTML
       $('.city').html(city);
-      $(".tempNow").html("Current Temperature (C) " + conditions.current_observation.temp_c);
+      $(".forecast").html("Forecast: " + response.forecast.txt_forecast.forecastday[0].fcttext_metric);
 
       // Log the data in the console as well
    
-    console.log("Current Temperature (C): " + conditions.current_observation.temp_c);
+    console.log("Forecast Period 0" + response.forecast.txt_forecast.forecastday[0].fcttext_metric);
 
-    var Icon = conditions.current_observation.icon_url;
+    var Icon = response.forecast.txt_forecast.forecastday[0].icon_url;
 
-   var image = $("<img>").attr("src", Icon); //Passes still image link to the image src
+    var image = $("<img>").attr("src", Icon); //Passes still image link to the image src
 
-   $(".tempNow").append(image);
+    $(".forecast").append(image);
     }); 
   </script>
 
