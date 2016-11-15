@@ -21,7 +21,7 @@
 
     var city = "Melbourne"
     // Here we are building the URL we need to query the database
-    var queryURL_Shop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=shorts&offset=0&limit=5";
+    var queryURL_Shop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=5";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API
@@ -47,9 +47,9 @@
 
     var clothingPic = response.products[0].image.sizes.IPhone.url;
 
-    var image = $("<img>").attr("src", clothingPic); //Passes still image link to the image src
+    var clothingImage = $("<img>").attr("src", clothingPic); //Passes still image link to the image src
 
-   $(".clothing_image").append(image);
+   $(".clothing_image").append(clothingImage);
     }); 
   </script>
 
