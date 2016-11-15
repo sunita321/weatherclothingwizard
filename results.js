@@ -1,11 +1,15 @@
+//possibly add class or id later to differentiate tops, bottoms, accessories.
+
 //start dumping to HTML
-var wellSection = $("<div>");
-wellSection.addClass("well");
-wellSection.attr("id", "articleWell-" + i);
-$("#wellSection").append(wellSection);
+var resultSection = $("<div>");
+resultSection.addClass("well");
+resultSection.attr("id", "resultSection-" + i);
+$("#largeResultsDiv").append(resultSection);
 
 //Attach content to appropriate well/div
-$("#articleWell-" + i).append("<h3>" + ClothingObject.data.article[1].etc + "</h3>");
+$("#resultSection-" + i).append("<img src='url.from.data'>" + ClothingObject.data.article[1].etc);
+$("#resultSection-" + i).append("<img src='url.from.data'>" + ClothingObject.data.article[1].etc);
+$("#resultSection-" + i).append("<img src='url.from.data'>" + ClothingObject.data.article[1].etc);
 
 //empty div before adding html content
-$("#wellSection").empty();
+$("#largeResultsDiv").empty();
