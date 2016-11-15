@@ -18,13 +18,15 @@
  
   <script type="text/javascript">
    // This is our API Key
-    var APIKey = "bc980387c56eb3ec";
+    var APIKey = "3f8d0b47644220a7";
 
-    var state = "FL"
+	var state = "FL";
 
-    var city = "Melbourne"
+    var city = "Melbourne";
+
+    var zip = "32901";
     // Here we are building the URL we need to query the database
-    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/forecast/q/CA/San_Francisco.json";
+    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/forecast/q/" + zip +".json";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API

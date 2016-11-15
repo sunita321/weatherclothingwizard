@@ -1,0 +1,59 @@
+<!-- Application Purpose: To get clothing data using the ShopStyle API-->
+<html>
+<head>
+  <title>ShopStyle Data</title>
+  <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <!-- Retrieved Data will be dumped here -->
+  <div class="category"></div>
+  <div class="clothing_image"></div>
+
+
+ 
+  <script type="text/javascript">
+   // This is our API Key
+    var ShopStyleAPIKey = "uid7169-36888263-28";
+
+    var warm = "jackets"
+
+    var city = "Melbourne"
+    // Here we are building the URL we need to query the database
+    var queryURL_Shop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=5";
+
+
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({url: queryURL_Shop, method: 'GET'})
+
+    // We store all of the retrieved data inside of an object called "response"
+    .done(function(response) {
+
+      // Log the queryURL_Shop
+      console.log(queryURL_Shop);
+
+      // Log the resulting object
+      console.log(response);
+
+
+      // Transfer content to HTML
+     $('.category').html("Category: " + response.metadata.category.fullName);
+      //$(".forecast").html("Forecast: " + response.forecast.txt_forecast.forecastday[0].fcttext_metric);
+
+      // Log the data in the console as well
+   
+    //console.log("Forecast Period 0" + response.forecast.txt_forecast.forecastday[0].fcttext_metric);
+
+    var clothingPic = response.products[0].image.sizes.IPhone.url;
+
+    var clothingImage = $("<img>").attr("src", clothingPic); //Passes still image link to the image src
+
+   $(".clothing_image").append(clothingImage);
+    }); 
+  </script>
+
+
+</body>
+</html>
+
