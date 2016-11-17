@@ -1,0 +1,1 @@
+This feature includes divs/containers for current and forecasted weather icons and info. HTML/CSS should be inline with entire app HTML/CSS. separate divs for current and forecasted. work on jQuery to grab data from weather underground API and then to display it in these divs.
