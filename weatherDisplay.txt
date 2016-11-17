@@ -1,1 +1,29 @@
 This feature includes divs/containers for current and forecasted weather icons and info. HTML/CSS should be inline with entire app HTML/CSS. separate divs for current and forecasted. work on jQuery to grab data from weather underground API and then to display it in these divs.
+
+weather underground API key = 3f8d0b47644220a7
+
+Example URLs to pull from:
+http://api.wunderground.com/api/Your_Key/conditions/q/CA/San_Francisco.json
+http://api.wunderground.com/api/Your_Key/geolookup/q/94107.json
+
+Combining our API, conditions, & zip code:
+http://api.wunderground.com/api/3f8d0b47644220a7/conditions/q/34711.json
+(this worked)
+
+URL breakdown:
+base = http://api.wunderground.com/api/
++
+API key
++ /
++
+(conditions) OR (forecast)
++ /
++
+q/
++
+zip code
++
+.json
+
+
+
