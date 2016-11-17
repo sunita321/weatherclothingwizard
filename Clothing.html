@@ -54,7 +54,85 @@
 
     }
 
-    displayWomenJackets();
+    function displayMenJackets()
+    {
+      $(".clothing_image").empty();
+
+      // Here we are building the URL we need to query the database
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=5";
+      // Log the queryURLShop
+      console.log(queryURLShop);
+
+      // AJAX call to the Shop Style API
+      $.ajax({url: queryURLShop, method: 'GET'})
+
+
+      //Transfer content to HTML
+      
+
+
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) 
+      {
+        $('.category').html("Category: " + response.metadata.category.fullName);
+        // Log the resulting object
+        console.log(response);
+        for (i=0; i < response.products.length; i++) 
+        {
+          var clothingPic = response.products[i].image.sizes.IPhone.url;
+          console.log(clothingPic);
+          var clothingImage = $("<img>").attr("src", clothingPic); //Passes still image link to the image src
+          $(".clothing_image").append(clothingImage);
+        }
+
+    
+      }); 
+
+    }
+
+        function displayUmbrella()
+    {
+      $(".clothing_image").empty();
+
+      // Here we are building the URL we need to query the database
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=5";
+      // Log the queryURLShop
+      console.log(queryURLShop);
+
+      // AJAX call to the Shop Style API
+      $.ajax({url: queryURLShop, method: 'GET'})
+
+
+      //Transfer content to HTML
+      
+
+
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) 
+      {
+        $('.category').html("Category: " + response.metadata.category.fullName);
+        // Log the resulting object
+        console.log(response);
+        for (i=0; i < response.products.length; i++) 
+        {
+          var clothingPic = response.products[i].image.sizes.IPhone.url;
+          console.log(clothingPic);
+          var clothingImage = $("<img>").attr("src", clothingPic); //Passes still image link to the image src
+          $(".clothing_image").append(clothingImage);
+        }
+
+    
+      }); 
+
+    }
+
+
+
+    //displayWomenJackets();
+
+    //displayMenJackets();
+
+    displayUmbrella();
   </script>
 
 
