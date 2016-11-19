@@ -62,7 +62,7 @@
 
     }
 
-    function displayWomenSnow()
+    function displayWomenCoats()
     {
       $(".clothing_jackets").empty();
 
@@ -87,6 +87,38 @@
           console.log(clothingImage_jacket);
           clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
           $(".clothing_jackets").append(clothingImage_jacket);
+        }
+
+    
+      }); 
+
+    }
+
+    function displayWomenSnow()
+    {
+      $(".umbrella").empty();
+
+      // Here we are building the URL we need to query the database
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=5";
+      // Log the queryURLShop
+      console.log(queryURLShop);
+
+      // AJAX call to the Shop Style API
+      $.ajax({url: queryURLShop, method: 'GET'})
+    
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) 
+      {
+        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        // Log the resulting object
+        console.log(response);
+        for (i=0; i < response.products.length; i++) 
+        {
+          //Transfer content to HTML
+          umberellaImage = response.products[i].image.sizes.IPhone.url;
+          console.log(umberellaImage);
+          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          $(".umbrella").append(umberellaImage);
         }
 
     
@@ -301,7 +333,7 @@
 
     }
 
-    function displayMenSnow()
+    function displayMenCoats()
     
     {
       $(".clothing_jackets").empty();
@@ -336,6 +368,37 @@
 
     }
 
+ function displayMenSnow()
+    {
+      $(".umbrella").empty();
+
+      // Here we are building the URL we need to query the database
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=5";
+      // Log the queryURLShop
+      console.log(queryURLShop);
+
+      // AJAX call to the Shop Style API
+      $.ajax({url: queryURLShop, method: 'GET'})
+    
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) 
+      {
+        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        // Log the resulting object
+        console.log(response);
+        for (i=0; i < response.products.length; i++) 
+        {
+          //Transfer content to HTML
+          umberellaImage = response.products[i].image.sizes.IPhone.url;
+          console.log(umberellaImage);
+          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          $(".umbrella").append(umberellaImage);
+        }
+
+    
+      }); 
+
+    }
 
     function displayMenTopsBusiness()
     {
@@ -582,6 +645,8 @@
 
 //displayWomenSnow();
 
+//displayWomenCoats()
+
 //displayWomenBusinessTops();
 
 //displayWomenCasualTops();
@@ -602,7 +667,9 @@ displayMenPantsBusiness();
 
 //displayMenJackets();
 
-//displayMenSnow()
+displayMenCoats();
+
+displayMenSnow();
 
 //displayMenPantsCasual();
 
