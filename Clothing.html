@@ -578,27 +578,27 @@
 
 //***********Function Calls**************
 
-displayWomenJackets();
+//displayWomenJackets();
 
 //displayWomenSnow();
 
 //displayWomenBusinessTops();
 
-displayWomenCasualTops();
+//displayWomenCasualTops();
 
-displayWomenCasualBottoms();
+//displayWomenCasualBottoms();
 
 //displayWomenCasualBottomsHot();
 
 //displayWomenBusinessBottoms();
 
-displayWOMENUmbrella();
+//displayWOMENUmbrella();
 
 //displayMENUmbrella()
 
-//displayMenTopsBusiness();
+displayMenTopsBusiness();
 
-//displayMenPantsBusiness();
+displayMenPantsBusiness();
 
 //displayMenJackets();
 
@@ -614,5 +614,32 @@ displayWOMENUmbrella();
 
 
 </body>
+
+<!--Logic for calling display clothing options
+
+Temperature
+
+***Business***
+
+  if (weather.tempF < 50) rec = "Coats & Pants and Tops";
+  else if (weather.tempF < 68) rec = "Pants & Top & Jacket weather";
+  else if (weather.tempF < 75) rec = "Pants & Top weather";
+  else if (weather.tempF < 100) rec = "Pants & Top weather";
+
+
+***Casual***
+
+if (weather.tempF < 50) rec = "Coats & Casual Pants & Casual Tops";
+  else if (weather.tempF < 68) rec = "Casual Pants & Top & Jacket weather";
+  else if (weather.tempF < 75) rec = "Casual Pants & Top weather";
+  else if (weather.tempF < 100) rec = "Shorts & Top weather";
+
+
+***Acessories***
+if weather forecast = rain show umbrellas
+if weather forecast = snow show snow shoes -->
+
 </html>
+
+
 
