@@ -2,10 +2,53 @@
 <html>
 <head>
 	<title>Greeting work</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<style type="text/css">
+		
+		h1 {
+			font-family: georgia, serif;
+		}
+	</style>
+		
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+  var now = new Date();
+  var hours = now.getHours();
+  var msg;
+
+  if (hours < 11) msg = "Good Morning!";
+  else if (hours < 18) msg = "Good Afternoon!";
+  else msg = "Good Evening!";
+  $('#time').html('<p>' + msg + '</p>');
+});
+
+$(":text").css("color", "red");
+
+
+		
+
+			
+			// ?if()
+
+		</script>
+
 </head>
 
 <body>
+		<!-- CSS for greeting -->
+	<style type="text/css">
+		
+		#time {
+			font-family: georgia, serif;
+		}
+	</style>
+		
+		
+	
 
+		
 	<!-- * Greetings 
 	- After initial sign in 
 	Goodmorning or Afternoon or Evening + Name
@@ -23,9 +66,18 @@
 
 
 	 -->
-	<h1>Good morning</h1>
-	<h1>Good Afternoon</h1>
-	<h1>Good Evening</h1>
+	<!-- container for the greeting -->
+	<div class="container">
+		<div id="time">
+			<p>+msg+</p>
+		</div>
+	</div>
+
+	
+
+	<!-- <script>
+		localStorage.setItem("")
+	</script> -->
 
 </body>
 </html>
