@@ -59,14 +59,6 @@ $(document).ready(function() {
         console.log(zipcode);
        
 
-        // Replaces the content in the "recentMember" div
-        //$("#recentMember").empty();
-
-        // Dump all of the new information into the relevant sections
-        //$("#recentMember").append("<h1>" + name);
-        //$("#recentMember").append("<h4>" + gender);
-        //$("#recentMember").append("<h4>" + zipcode);
-
         // < -----------------------------------------------------------
 
         // Clear localStorage
@@ -78,7 +70,9 @@ $(document).ready(function() {
         localStorage.setItem("zipcode", zipcode);
 
         // < -----------------------------------------------------------
-
+        name.empty()
+        gender.empty()
+        zipcode.empty()
         // Don't refresh the page!
         return false;
     });
