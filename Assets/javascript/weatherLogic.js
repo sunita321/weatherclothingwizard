@@ -21,9 +21,18 @@
 //id of navbar submit button?
 $(document).ready(function() {
 
-	$(".btn").on("click", function() {
-			//grabbing zip code from user input field
-		 	var zipcode = $(".form-control").val();
+			// var weatherHolder = $("div").attr("id", "weatherHolder");
+
+			var currentHolder = $("div").attr("id", "currentHolder");
+
+			var forecastHolder = $("div").attr("id", "forecastHolder");
+
+			var zipcode = 34711
+
+			var storeZipcode = localStorage.setItem("zipcode", zipcode);
+
+			var localZipcode = localStorage.getItem("zipcode", zipcode);
+
 		 	//console.log the zipcode var data
 		 	console.log(zipcode);
 
@@ -32,11 +41,11 @@ $(document).ready(function() {
 			var weatherRequest = ["conditions", "forecast"];
 
 			//Giphy API url plus specific queries requested, including dessert name from array
-			var currentURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + zipcode + ".json";
+			var currentURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + localZipcode + ".json";
 
 			console.log(currentURL);
 
-			var forecastURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + zipcode + ".json";
+			var forecastURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + localZipcode + ".json";
 			
 			console.log(forecastURL);
 
@@ -55,22 +64,8 @@ $(document).ready(function() {
 				method: "GET"
 			};
 
-			var weatherHolder = $("div").attr("id", "weatherHolder");
+			$("#weatherHolder").empty();
 
-			var currentHolder = $("div").attr("id", "currentHolder");
-
-			var forecastHolder = $("div").attr("id", "forecastHolder");
-
-			$(weatherHolder).css({"border-color": "black", "border-width": "2px", "height": "500px", "background-color": "blue", "color": "white"})
-			$("body").append(weatherHolder);
-
-			$(weatherHolder).empty();
-
-
-//---------------------above this line has been edited specifically for weatherclothingwizard
-//---------------------below this line is leftover from homework example
-
-			//request current data from WeatherUnderground API
 			$.ajax(currentRequest).done(function(currentResponse) {
 				//console.log currentRequest var
 				console.log(currentRequest);
@@ -81,26 +76,35 @@ $(document).ready(function() {
 
 				var feelsLike = currentResponse.current_observation.feelslike_f;
 
-				var icon = "<img src='currentResponse.current_observation.icon_url'>";
+				var currentIcon = currentResponse.current_observation.icon_url;
 			
-				$(currentHolder).append("<h3>Current Conditions:</h3><br>" + icon + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
+				function displayCurrent() {
+					$(currentHolder).append("<h3>Current Conditions:</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
 
-				$(weatherHolder).append(currentHolder);
+					$("#weatherHolder").append(currentHolder);
+
+					// $("body").append(weatherHolder);
+				};
+				
+				displayCurrent();
+				
 
 			});
 
 			//request forecast data from WeatherUnderground API
 			$.ajax(forecastRequest).done(function(forecastResponse) {
+				//console.log forecastRequest var
+				console.log(forecastRequest);
 				//console.log data response, objects from API
 				console.log(forecastResponse);
 
 				var dayIcon = forecastResponse.forecast.txt_forecast.forecastday[0].icon_url;
 
-				var dayIconImage = "<img src='dayIcon'>";
+				var dayIconImage = "<img src='" + dayIcon + "'>";
 
 				var nightIcon = forecastResponse.forecast.txt_forecast.forecastday[1].icon_url;
 
-				var nightIconImage = "<img src='nightIcon'>";
+				var nightIconImage = "<img src='" + nightIcon + "'>";
 
 				var dayTitle = forecastResponse.forecast.txt_forecast.forecastday[0].title;
 
@@ -110,14 +114,37 @@ $(document).ready(function() {
 
 				var nightText = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext;
 
-				$(forecastHolder).append(dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
+				function displayForecast() {
+					$(forecastHolder).append(dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
 
-				$(weatherHolder).append(forecastHolder);
+					$("#weatherHolder").append(forecastHolder);
 
-				$("body").append(weatherHolder);
+					// $("body").append(weatherHolder);
+				};
+
+				displayForecast();
+				
 
 			});
-	});
+
+
+
+
+			$(".btn").on("click", function() {
+				//grabbing zip code from user input field
+				var zipcode = $(".form-control").val();
+			 	//console.log the zipcode var data
+			 	console.log(zipcode);
+
+			 	$("#weatherHolder").empty();
+
+				$("#weatherHolder").css({"border-color": "black", "border-width": "2px", "height": "500px", "background-color": "blue", "color": "white"})
+
+				displayCurrent();		
+
+				displayForecast();
+
+			});
 });
 
 
