@@ -27,6 +27,10 @@
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
+    var tempF = 75;
+
+    var forecast = "snow";
+
 
     //***********Women Clothes****************
 
@@ -301,7 +305,7 @@
     function displayMenJackets()
     
     {
-      $(".clothing_tops").empty();
+      $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
       var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=5";
@@ -316,16 +320,16 @@
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_tops').html("Category: " + response.metadata.category.fullName);
+        $('.category_jackets').html("Category: " + response.metadata.category.fullName);
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           //Transfer content to HTML
-          clothingImage_top = response.products[i].image.sizes.IPhone.url;
-          console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+          clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
+          console.log(clothingImage_jacket);
+          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          $(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -661,21 +665,65 @@
 
 //displayMENUmbrella()
 
-displayMenTopsBusiness();
+//displayMenTopsBusiness();
 
-displayMenPantsBusiness();
+//displayMenPantsBusiness();
 
 //displayMenJackets();
 
-displayMenCoats();
+//displayMenCoats();
 
-displayMenSnow();
+//displayMenSnow();
 
 //displayMenPantsCasual();
 
 //displayMenTopsCasual();
 
 //displayMenPantsCasualHot();
+
+//**********Business Men Outfit************
+function wizardManBusiness()
+{
+  if (tempF < 50)
+  {
+    displayMenCoats();
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+  }
+
+  else if (tempF < 68)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+    displayMenJackets();
+  }
+
+  else if (tempF < 75)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+  }
+
+  else if (tempF < 100)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+  }
+
+
+
+  if (forecast == "rain")
+  {
+    displayMENUmbrella();
+  }
+
+  else if (forecast == "snow")
+  {
+    displayMenSnow();
+  }
+}
+
+
 
   </script>
 
@@ -704,7 +752,9 @@ if (weather.tempF < 50) rec = "Coats & Casual Pants & Casual Tops";
 
 ***Acessories***
 if weather forecast = rain show umbrellas
-if weather forecast = snow show snow shoes -->
+if weather forecast = snow show snow shoes 
+
+MAKE if fuunction for gender and occasion-->
 
 </html>
 
