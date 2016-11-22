@@ -27,7 +27,7 @@
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var tempF = 75;
+    var temp = 60;
 
     var forecast = "snow";
 
@@ -638,8 +638,10 @@
           $(".umbrella").append(umberellaImage);
         }
 
-    
+           
       }); 
+
+     
 
     }
 
@@ -684,27 +686,27 @@
 //**********Business Men Outfit************
 function wizardManBusiness()
 {
-  if (tempF < 50)
+  if (temp < 50)
   {
     displayMenCoats();
     displayMenPantsBusiness();
     displayMenTopsBusiness();
   }
 
-  else if (tempF < 68)
+  else if (temp < 68)
   {
     displayMenPantsBusiness();
     displayMenTopsBusiness();
     displayMenJackets();
   }
 
-  else if (tempF < 75)
+  else if (temp < 75)
   {
     displayMenPantsBusiness();
     displayMenTopsBusiness();
   }
 
-  else if (tempF < 100)
+  else if (temp < 100)
   {
     displayMenPantsBusiness();
     displayMenTopsBusiness();
@@ -712,7 +714,7 @@ function wizardManBusiness()
 
 
 
-  if (forecast == "rain")
+  if (forecast == "chancerain" || forecast == "nt_chancerain" || forecast == "chancetstorms" || forecast =="nt_chancetstorms" || forecast =="rain" || forecast =="nt_rain" || forecast == "tstorms" || forecast == "nt_tstorms")
   {
     displayMENUmbrella();
   }
@@ -721,8 +723,57 @@ function wizardManBusiness()
   {
     displayMenSnow();
   }
+
+
 }
 
+//wizardManBusiness();
+
+//**********Business Men Outfit************
+function wizardManCasual()
+{
+  if (temp < 50)
+  {
+    displayMenCoats();
+    displayMenPantsCasual();
+    displayMenTopsCasual();
+  }
+
+  else if (temp < 68)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+    displayMenJackets();
+  }
+
+  else if (temp < 75)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+  }
+
+  else if (temp < 100)
+  {
+    displayMenPantsBusiness();
+    displayMenTopsBusiness();
+  }
+
+
+
+  if (forecast == "chancerain" || forecast == "nt_chancerain" || forecast == "chancetstorms" || forecast =="nt_chancetstorms" || forecast =="rain" || forecast =="nt_rain" || forecast == "tstorms" || forecast == "nt_tstorms")
+  {
+    displayMENUmbrella();
+  }
+
+  else if (forecast == "snow")
+  {
+    displayMenSnow();
+  }
+
+
+}
+
+//wizardManBusiness();
 
 
   </script>
