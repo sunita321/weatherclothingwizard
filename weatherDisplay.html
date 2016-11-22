@@ -1,33 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
-
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
-  
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-  
-
-
-  <title></title>
-</head>
-<body>
-  <header>
-      <input type="text" class="form-control" placeholder="add another zipcode">
-        
-      <button type="submit" class="btn btn-default">Submit</button>
-  </header>
-  
-  <div id="weatherHolder">
-  </div>
-     
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +32,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ocassion <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Business </a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Casual </a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <!-- TEXT FIELD & Submit Button -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gender <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Male </a></li>
@@ -70,8 +54,7 @@
           </ul>
         </li>
       </ul>
-      
-      <!-- TEXT FIELD & Submit Button -->
+
       <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -79,17 +62,22 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <!-- TEXT FIELD & Submit Button Ends-->
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>    
-<div class="container" id="weatherHolder"></div>
-</div>
+      <div class="member"><a href="">not a member yet? </a></div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav><!-- /.navbar -->
+</div><!-- /.container-fluid -->
 
+<div class="container-fluid" id="infoContainer">
+  <div class="container" id="weatherHolder">
+
+</div>
   
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="assets/js/javascript.js"></script>
-  <script type="text/javascript" src="assets/javascript/weatherLogic.js"></script>
+  <script src="assets/javascript/weatherLogic.js"></script>
+
 </body>
-</html> 
+</html>
