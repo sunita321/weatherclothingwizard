@@ -76,6 +76,15 @@ $(document).ready(function() {
 		method: "GET"
 	};
 
+	// var forecast = forecastData.val();
+
+		var now = new Date();
+		var hours = now.getHours();
+		
+		if (hours > 15) {
+			forecast = forecastResponse.forecast.txt_forecast.forecastday[1].icon; 
+		};
+
 	$("#weatherHolder").empty();
 
 	function displayCurrent() {
@@ -114,25 +123,44 @@ $(document).ready(function() {
 
 				var dayIconImage = "<img src='" + dayIcon + "'>";
 
-				var iconWordDay = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
-
 				var nightIcon = forecastResponse.forecast.txt_forecast.forecastday[1].icon_url;
 
 				var nightIconImage = "<img src='" + nightIcon + "'>";
 
-				var iconWordNight = forecastResponse.forecast.txt_forecast.forecastday[1].icon;
+				var forecastData = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
+
+				var forecast = forecastData.val();
+				console.log(forecast);
+
+				var now = new Date();
+				
+				var hours = now.getHours();
+				
+				var text = forecastResponse.forecast.txt_forecast.forecastday[0].fcttext;
+				
+				if (hours > 15) {
+					
+					forecast = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
+					
+					text = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext; 
+				} 
 
 				var dayTitle = forecastResponse.forecast.txt_forecast.forecastday[0].title;
 
 				var nightTitle = forecastResponse.forecast.txt_forecast.forecastday[1].title;
 
-				var dayText = forecastResponse.forecast.txt_forecast.forecastday[0].fcttext;
 
-				var nightText = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext;
+				
 
-			$(forecastHolder).append(dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
+			$(forecastHolder).append("<h3>Forecast:</h3>" + dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + text);
 
 			$("#weatherHolder").append(forecastHolder);
+
+			//uncomment for Sunita's functions to run.
+			// wizardManBusiness();
+			// wizardManCasual();
+			// wizardWomanCasual();
+			// wizardWomanBusiness();
 
 			// $("body").append(weatherHolder);
 
@@ -147,11 +175,11 @@ $(document).ready(function() {
 		console.log(currentRequest);
 		//console.log data response, objects from API
 		console.log(currentResponseWithInput);
-
+		//current temp data
 		var temp = currentResponse.current_observation.temp_f;
-
+		//current feels like data
 		var feelsLike = currentResponse.current_observation.feelslike_f;
-
+		//current weather icon url data
 		var currentIcon = currentResponse.current_observation.icon_url;
 
 		$(currentHolder).append("<h3>Current Conditions:</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
@@ -176,7 +204,18 @@ $(document).ready(function() {
 
 				var dayIconImage = "<img src='" + dayIcon + "'>";
 
-				var iconWord = "";
+				
+				var forecast = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
+
+				var now = new Date();
+				var hours = now.getHours();
+				
+				if (hours > 15) {
+					forecast = forecastResponse.forecast.txt_forecast.forecastday[1].icon; 
+				}
+
+				
+
 
 				var nightIcon = forecastResponse.forecast.txt_forecast.forecastday[1].icon_url;
 
@@ -190,7 +229,7 @@ $(document).ready(function() {
 
 				var nightText = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext;
 
-			$(forecastHolder).append(dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
+			$(forecastHolder).append("<h3>Forecast:</h3><br>" + dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
 
 			$("#weatherHolder").append(forecastHolder);
 
@@ -198,12 +237,20 @@ $(document).ready(function() {
 
 			});
 
+
 		};
 
 
+		forecastTime();
+
+		function newZipcode() {
+			var inputZipcode = $(".btn").val();
+			console.lop(inputZipcode);
+		}
+
 	//submit button on click event
 	$(".btn").on("click", function() {
-		console.log(inputZipcode);
+		newZipcode();
 
 		// if (inputZipcode === "") {
 		// 	//console.log the zipcode var data
