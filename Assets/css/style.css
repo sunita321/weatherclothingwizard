@@ -6,10 +6,6 @@
 	margin: 2px;
 	}
 
-#weatherPanel{
-	float: left;
-}
-
-#clothingPanel{
-	float: none;
+.member{
+	float: right;
 }
