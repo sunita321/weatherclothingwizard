@@ -5,3 +5,11 @@
 	font-family: Georgia,serif;
 	margin: 2px;
 	}
+
+#weatherPanel{
+	float: left;
+}
+
+#clothingPanel{
+	float: none;
+}
