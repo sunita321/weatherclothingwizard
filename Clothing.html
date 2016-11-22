@@ -27,9 +27,9 @@
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 60;
+    var temp = 40;
 
-    var forecast = "snow";
+    var forecast = "nt_rain";
 
 
     //***********Women Clothes****************
@@ -719,7 +719,7 @@ function wizardManBusiness()
     displayMENUmbrella();
   }
 
-  else if (forecast == "snow")
+  else if (forecast == "snow" || forecast == "nt_snow" || forecast == "chancesnow" || forecast == "nt_chancesnow" || forecast == "flurries" || forecast == "nt_flurries" || forecast == "sleet" || forecast == "nt_sleet" || forecast == "chancesleet" || forecast == "nt_chancesleet")
   {
     displayMenSnow();
   }
@@ -729,7 +729,7 @@ function wizardManBusiness()
 
 //wizardManBusiness();
 
-//**********Business Men Outfit************
+//**********Casual Men Outfit************
 function wizardManCasual()
 {
   if (temp < 50)
@@ -741,21 +741,21 @@ function wizardManCasual()
 
   else if (temp < 68)
   {
-    displayMenPantsBusiness();
-    displayMenTopsBusiness();
+    displayMenPantsCasual();
+    displayMenTopsCasual();
     displayMenJackets();
   }
 
   else if (temp < 75)
   {
-    displayMenPantsBusiness();
-    displayMenTopsBusiness();
+    displayMenPantsCasual();
+    displayMenTopsCasual();
   }
 
   else if (temp < 100)
   {
-    displayMenPantsBusiness();
-    displayMenTopsBusiness();
+    displayMenPantsCasualHot();
+    displayMenTopsCasual();
   }
 
 
@@ -765,7 +765,7 @@ function wizardManCasual()
     displayMENUmbrella();
   }
 
-  else if (forecast == "snow")
+   else if (forecast == "snow" || forecast == "nt_snow" || forecast == "chancesnow" || forecast == "nt_chancesnow" || forecast == "flurries" || forecast == "nt_flurries" || forecast == "sleet" || forecast == "nt_sleet" || forecast == "chancesleet" || forecast == "nt_chancesleet")
   {
     displayMenSnow();
   }
@@ -773,7 +773,100 @@ function wizardManCasual()
 
 }
 
-//wizardManBusiness();
+//wizardManCasual();
+
+//**********Casual WOMAN Outfit************
+function wizardWomanCasual()
+{
+  if (temp < 50)
+  {
+    displayWomenCoats();
+    displayWomenCasualBottoms();
+    displayWomenCasualTops();
+  }
+
+  else if (temp < 68)
+  {
+    displayWomenCasualBottoms();
+    displayWomenCasualTops();
+    displayWomenJackets();
+  }
+
+  else if (temp < 75)
+  {
+    displayWomenCasualBottoms();
+    displayWomenCasualTops();
+  }
+
+  else if (temp < 100)
+  {
+    displayWomenCasualBottomsHot();
+    displayWomenCasualTops();
+  }
+
+
+
+  if (forecast == "chancerain" || forecast == "nt_chancerain" || forecast == "chancetstorms" || forecast =="nt_chancetstorms" || forecast =="rain" || forecast =="nt_rain" || forecast == "tstorms" || forecast == "nt_tstorms")
+  {
+    displayWOMENUmbrella();
+  }
+
+   else if (forecast == "snow" || forecast == "nt_snow" || forecast == "chancesnow" || forecast == "nt_chancesnow" || forecast == "flurries" || forecast == "nt_flurries" || forecast == "sleet" || forecast == "nt_sleet" || forecast == "chancesleet" || forecast == "nt_chancesleet")
+  {
+    displayWomenSnow();
+  }
+
+
+}
+
+//wizardWomanCasual();
+
+
+//**********Business WOMAN Outfit************
+function wizardWomanBusiness()
+{
+  if (temp < 50)
+  {
+    displayWomenCoats();
+    displayWomenBusinessBottoms();
+    displayWomenBusinessTops();
+  }
+
+  else if (temp < 68)
+  {
+    displayWomenBusinessBottoms();
+    displayWomenBusinessTops();
+    displayWomenJackets();
+  }
+
+  else if (temp < 75)
+  {
+    displayWomenBusinessBottoms();
+    displayWomenBusinessTops();
+  }
+
+  else if (temp < 100)
+  {
+    displayWomenBusinessBottoms();
+    displayWomenBusinessTops();
+  }
+
+
+
+  if (forecast == "chancerain" || forecast == "nt_chancerain" || forecast == "chancetstorms" || forecast =="nt_chancetstorms" || forecast =="rain" || forecast =="nt_rain" || forecast == "tstorms" || forecast == "nt_tstorms")
+  {
+    displayWOMENUmbrella();
+  }
+
+ else if (forecast == "snow" || forecast == "nt_snow" || forecast == "chancesnow" || forecast == "nt_chancesnow" || forecast == "flurries" || forecast == "nt_flurries" || forecast == "sleet" || forecast == "nt_sleet" || forecast == "chancesleet" || forecast == "nt_chancesleet")
+  {
+    displayWomenSnow();
+  }
+
+
+}
+
+wizardWomanBusiness();
 
 
   </script>
