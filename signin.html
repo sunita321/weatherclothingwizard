@@ -9,7 +9,15 @@
 </head>
 <body style="background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg')">
 
-<div class="container" >
+<!-- jumbo drunk hieght 195 -->
+<div class="container-fluid">
+<div class="jumbotron" id="header" style="text-align: center;
+    background-color: black;
+    color: white;
+    font-family: Georgia,serif;margin: 2px;">
+         <h1>Weather Clothing Wizard</h1>
+      </div>
+<div class="container" id="signin">
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -30,7 +38,7 @@
                 <hr class="colorgraph">
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <a href="" class="btn btn-lg btn-primary btn-block" id="addUser">Submit</a>
+                        <a href="#" class="btn btn-lg btn-primary btn-block" id="addUser">Submit</a>
                     </div>
                 </div>
             </fieldset>
@@ -38,6 +46,7 @@
     </div>
 </div>
 
+</div>
 </div>
 <script>
 
@@ -70,11 +79,14 @@ $(document).ready(function() {
         localStorage.setItem("zipcode", zipcode);
 
         // < -----------------------------------------------------------
-        name.empty()
-        gender.empty()
-        zipcode.empty()
-        // Don't refresh the page!
-        return false;
+    
+
+
+        window.location.href = 'Forecast.html'
+
+
+
+        
     });
     });
 </script>
