@@ -27,9 +27,13 @@
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 40;
+    var temp = 55;
 
-    var forecast = "nt_rain";
+    var forecast = "rain";
+
+    var occasion = "casual";
+
+    var gender = "female";
 
 
     //***********Women Clothes****************
@@ -892,6 +896,25 @@ function wizardWomanBusiness()
 }
 
 //wizardWomanBusiness();
+
+//********************Gender and Occasion*************************
+
+if (gender == "male" && occasion == "business")
+{
+  wizardManBusiness();
+}
+else if (gender == "male" && occasion == "casual")
+{
+  wizardManCasual();
+}
+else if (gender == "female" && occasion == "business")
+{
+  wizardWomanBusiness();
+}
+else if (gender == "female" && occasion == "casual")
+{
+  wizardWomanCasual();
+}
 
 
 
