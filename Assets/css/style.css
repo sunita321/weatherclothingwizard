@@ -5,3 +5,13 @@
 	font-family: Georgia,serif;
 	margin: 2px;
 	}
+
+.member{
+	float: right;
+}
+
+#wizard-search{
+	margin-top: 25px;
+
+	margin-bottom: 10px;
+}
