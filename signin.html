@@ -13,7 +13,7 @@
             background-repeat: no-repeat;
         })">
 
-<!-- jumbo drunk hieght 195 -->
+
 <div class="container-fluid">
 <div class="jumbotron" id="header" style="text-align: center;
     background-color: black;
@@ -23,21 +23,35 @@
       </div>
 <div class="container" id="signin">
 
-<div class="row" style="margin-top:20px">
+<div class="row" style="margin-top:5px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <form role="form">
+        <form role="form" data-toggle="validator" id="contact-form">
             <fieldset>
                 <h2>Initial Setup</h2>
                 <hr class="colorgraph">
                 <div class="form-group">
-                    <input type="name" name="name" id="name" class="form-control input-lg" placeholder="First Name">
+                <label class="control-label" for="firstName">First Name</label>
+                <div class="form-group">
+                    <input type="firstName" firstnName="firstName" id="firstName" class="form-control input-lg" placeholder="Your First Name">
                 </div>
                 <div class="form-group">
-                    <input type="gender" name="gender" id="gender" class="form-control input-lg" placeholder="Gender">
+                <label class="control-label" for="lastName">Last Name</label>
+                <div class="form-group">
+                    <input type="lastName" name="lastName" id="lastName" class="form-control input-lg" placeholder="Your Last Name">
                 </div>
                  <div class="form-group">
-                    <input type="zipcode" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Zipcode">
+                 <label class="control-label" for="Zipcode">Zipcode</label>
+                <div class="form-group">
+                    <input type="zipcode" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Your Zipcode">
                 </div>
+                 <div class="form-group">
+                 <label class="control-label" for="Gender">Gender</label>
+                 <div class="form-group">  
+                <select id="gender" name="gender">
+                        <option type="na" selected="">Choose One:</option>
+                        <option type="male">Male</option>
+                        <option type="female">Female</option>
+                </select>
 
                 <hr class="colorgraph">
                 <div class="row">
@@ -61,15 +75,43 @@ $(document).ready(function() {
     $("#addUser").on("click", function() {
 
         // Capture User Inputs and store into variables
-        var name = $('#name').val().trim(); 
+        var firstName = $('#firstName').val().trim();
+        var lastName = $('#lastName').val().trim();
         var gender = $('#gender').val().trim(); 
         var zipcode = $('#zipcode').val().trim(); 
        
 
         // Console log each of the user inputs to confirm you are receiving them
-        console.log(name);
+        console.log(firstName);
+        console.log(lastName);
         console.log(gender);
         console.log(zipcode);
+
+        $("#contact-form").validator({
+        rules: {
+        firstName: {
+            minlength: 2,
+            required: true
+        },
+        lastName: {
+            required: true,
+            email: true
+        },
+        zipcode: {
+            minlength: 5,
+            required: true
+        }
+    },
+    highlight: function (element) {
+        $(element).closest('.form-control').removeClass('success').addClass('error');
+    },
+    success: function (element) {
+        element.text('OK!').addClass('valid')
+            .closest('.form-control').removeClass('error').addClass('success');
+    }
+    });
+
+
        
 
         // < -----------------------------------------------------------
@@ -78,7 +120,8 @@ $(document).ready(function() {
         localStorage.clear();
 
         // Store all content into localStorage
-        localStorage.setItem("name", name); 
+        localStorage.setItem("firstName", firstName); 
+        localStorage.setItem("lastName", lastName); 
         localStorage.setItem("gender", gender);
         localStorage.setItem("zipcode", zipcode);
 
@@ -93,6 +136,8 @@ $(document).ready(function() {
         
     });
     });
+
+
 </script>
 
 
