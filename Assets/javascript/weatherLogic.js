@@ -1,3 +1,5 @@
+//add data to weather divs with data that is either locally stored zip code or user inputted zip code
+//if statements for if input form has a value or is empty
 //define variables for Sunita to target icon text e.g. clear, snow, etc.
 //eventually adjust variable surrounding local storage to target Ruth's stored data
 
@@ -40,21 +42,6 @@ $(document).ready(function() {
 		//request method === GET
 		method: "GET"
 	};
-
-	//created variable for API data request to be made
-	// var currentRequestWithInput = {
-	// 	//url for reqest will === above var of urlQuery
-	// 	url: currentURLwithInput,
-	// 	//request method === GET
-	// 	method: "GET"
-	// };
-
-	// var forecastRequestWithInput = {
-	// 	//url for reqest will === above var of urlQuery
-	// 	url: forecastURLwithInput,
-	// 	//request method === GET
-	// 	method: "GET"
-	// };
 	//testing purposes only, remove before going live, included in Mike's code
 	var now = new Date();
 	//testing purposes only, remove before going live, included in Mike's code
@@ -142,127 +129,127 @@ $(document).ready(function() {
 
 		};
 
-	// 	function displayCurrentWithInput() {
-
-	// 	$.ajax(currentRequestWithInput).done(function(currentResponseWithInput) {
-	// 	//console.log currentRequest var
-	// 	console.log(currentRequest);
-	// 	//console.log data response, objects from API
-	// 	console.log(currentResponseWithInput);
-	// 	//current temp data
-	// 	var temp = currentResponse.current_observation.temp_f;
-	// 	//current feels like data
-	// 	var feelsLike = currentResponse.current_observation.feelslike_f;
-	// 	//current weather icon url data
-	// 	var currentIcon = currentResponse.current_observation.icon_url;
-
-	// 	$(currentHolder).append("<h3>Current Conditions:</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
-
-	// 	$("#weatherHolder").prepend(currentHolder);
-	// 	// $("body").append(weatherHolder);
-
-	// 	});
-		
-	// };
-
-		// function displayForecastWithInput() {
-
-		// 	//request forecast data from WeatherUnderground API
-		// 	$.ajax(forecastRequestWithInput).done(function(forecastResponseWithInput) {
-		// 		//console.log forecastRequest var
-		// 		console.log(forecastRequest);
-		// 		//console.log data response, objects from API
-		// 		console.log(forecastResponseWithInput);
-
-		// 		var dayIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon_url;
-
-		// 		var dayIconImage = "<img src='" + dayIcon + "'>";
-
-		// 		var forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon;
-
-		// 		var now = new Date();
-		// 		var hours = now.getHours();
-				
-		// 		if (hours > 15) {
-		// 			forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon; 
-		// 		}
-
-		// 		var nightIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon_url;
-
-		// 		var nightIconImage = "<img src='" + nightIcon + "'>";
-
-		// 		var dayTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].title;
-
-		// 		var nightTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].title;
-
-		// 		var dayText = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].fcttext;
-
-		// 		var nightText = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].fcttext;
-
-		// 		$(forecastHolder).append("<h3>Forecast:</h3><br>" + dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
-
-		// 		$("#weatherHolder").append(forecastHolder);
-
-		// 	});
-		// };
-
-	// $(".form-control").keypress(function() {
-	// 	var inputZipcode = $(this).text();
-	// 	console.log(inputZipcode);
-	// });
-
-	// var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
-
-	// console.log(currentURL);
-
-	// var forecastURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + inputZipcode + ".json";
-	
-	// console.log(forecastURL);
-		
-
-
-	//submit button on click event
-	// $(".btn").on("click", function() {
-	// 	// newZipcode();
-
-	// 	if (inputZipcode === "") {
-	// 		//console.log the zipcode var data
-	// 	 	console.log(inputZipcode);
-
-	// 	 	$("#weatherHolder").empty();
-
-	// 		// $("#weatherHolder").css({"border-color": "black", "border-width": "2px", "height": "500px", "background-color": "blue", "color": "white"})
-
-	// 		displayCurrent();		
-
-	// 		displayForecast();
-	// 	} else {
-	// 		//run different functions and API calls based on user input rather than local storage
-	// 		// inputZipcode
-
-	// 		//console.log the zipcode var data
-	// 	 	console.log(inputZipcode);
-
-	// 	 	$("#weatherHolder").empty();
-
-	// 		// $("#weatherHolder").css({"border-color": "black", "border-width": "2px", "height": "500px", "background-color": "blue", "color": "white"})
-
-	// 		displayCurrentWithInput();		
-
-	// 		displayForecastWithInput();
-	// 	}
-		
-	// });
-
-//Call functions---------------------------------------------
+$("#wizard-search").on("click", function() {
 	$("#weatherHolder").empty();
-	displayCurrent();
+	
 
-	displayForecast();
+	var inputZipcode = $("#zip-form").val();
+	//gif.data('stillImage', response.data[i].images.fixed_height_still.url);
+	$(currentHolder).data("inputZipcode", inputZipcode);
+	var dataZipcode = $(currentHolder).data("inputZipcode");
+	$(forecastHolder).data("inputZipcode", inputZipcode);
 
+	var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
+	
+	var forecastURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + inputZipcode + ".json";
+	//created variable for API data request to be made
+	var currentRequestWithInput = {
+		//url for reqest will === above var of urlQuery
+		url: currentURLwithInput,
+		//request method === GET
+		method: "GET"
+	};
 
+	var forecastRequestWithInput = {
+		//url for reqest will === above var of urlQuery
+		url: forecastURLwithInput,
+		//request method === GET
+		method: "GET"
+	};
+
+	function displayCurrentWithInput() {
+			//variable for user inputted zip code
+			// var inputZipcode = $(currentHolder).data("inputZipcode");
+			console.log(inputZipcode);
+
+			var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + dataZipcode + ".json";
+
+			$.ajax(currentRequestWithInput).done(function(currentResponseWithInput) {
+				//console.log currentRequest var
+				console.log(currentRequest);
+				//console.log data response, objects from API
+				console.log(currentResponseWithInput);
+				//current temp data
+				var temp = currentResponseWithInput.current_observation.temp_f;
+				//current feels like data
+				var feelsLike = currentResponseWithInput.current_observation.feelslike_f;
+				//current weather icon url data
+				var currentIcon = currentResponseWithInput.current_observation.icon_url;
+
+				$(currentHolder).append("<h3>Current Conditions:</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
+				
+				$("#weatherHolder").prepend(currentHolder);
+				// $("body").append(weatherHolder);
+
+			});
+		
+	};
+
+		function displayForecastWithInput() {
+			//variable for user inputted zip code
+			var inputZipcode = $("#zip-form").val();
+			console.log(inputZipcode);
+
+			var forecastURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + inputZipcode + ".json";
+
+	// 	// 	//request forecast data from WeatherUnderground API
+			$.ajax(forecastRequestWithInput).done(function(forecastResponseWithInput) {
+				//console.log forecastRequest var
+				console.log(forecastRequest);
+				//console.log data response, objects from API
+				console.log(forecastResponseWithInput);
+
+				var dayIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon_url;
+
+				var dayIconImage = "<img src='" + dayIcon + "'>";
+
+				var forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon;
+
+				var now = new Date();
+				var hours = now.getHours();
+				
+				if (hours > 15) {
+					forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon; 
+				}
+
+				var nightIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon_url;
+
+				var nightIconImage = "<img src='" + nightIcon + "'>";
+
+				var dayTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].title;
+
+				var nightTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].title;
+
+				var dayText = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].fcttext;
+
+				var nightText = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].fcttext;
+
+				$(forecastHolder).append("<h3>Forecast:</h3><br>" + dayTitle + dayIconImage + dayText + "<br>" + nightTitle + nightIconImage + nightText);
+
+				$("#weatherHolder").append(forecastHolder);
+
+			});
+		};
+
+	if (inputZipcode === null) {
+		displayForecast();
+		displayCurrent();
+	} else {
+		displayForecastWithInput();
+		displayCurrentWithInput();
+	}
 
 });
+
+// //Call functions---------------------------------------------
+
+	// displayCurrent();
+
+	// displayForecast();
+
+});
+
+
 
 
 
