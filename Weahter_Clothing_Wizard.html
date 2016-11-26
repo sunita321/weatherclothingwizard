@@ -36,7 +36,7 @@
       <div class="form-group">
        <div class="col-sm-3">
           <label for="gender">Gender:</label>
-            <select class="form-control" id="gender-input">
+            <select class="form-control" id="gender-input" required>
               <option value="" selected disabled>Please select your Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -46,9 +46,9 @@
       <div class="form-group">
       <div class="col-sm-3">
           <label for="occasion">Occasion:</label>
-            <select class="form-control" id="occasion-input">
+            <select class="form-control" id="occasion-input" required>
             <option value="" selected disabled>Please select your Occasion</option>
-              <option value="business">Business</option>
+              <option value="business" >Business</option>
               <option value="casual">Casual</option>
             </select>
       </div>
@@ -57,7 +57,7 @@
 
     <div class="form-group">
     <div class="col-sm-2">
-    <label for="zipcode">Zip Code</label>  
+    <label for="zipcode">Change Zip Code</label>  
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
       <input class="form-control" id="zip-form" placeholder="Enter Zip Code" type="text" pattern="^[0-9]{5}(?:-[0-9]{4})?$">
