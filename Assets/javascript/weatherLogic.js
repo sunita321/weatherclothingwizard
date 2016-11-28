@@ -1,8 +1,3 @@
-//add data to weather divs with data that is either locally stored zip code or user inputted zip code
-//if statements for if input form has a value or is empty
-//define variables for Sunita to target icon text e.g. clear, snow, etc.
-//eventually adjust variable surrounding local storage to target Ruth's stored data
-
 //wait until document loads to carry out javascript
 $(document).ready(function() {
 	//variable for dynamically created div to hold current weather conditions
@@ -11,14 +6,13 @@ $(document).ready(function() {
 	var forecastHolder = $("<div class='panel' id='forecastHolder'>");
 	//eventually this needs to change to target Ruth's locally stored data...
 	//***comment this out before combining code***
-	var zipcode = 34711 //eventually change this to content of localZipcode var
+	// var zipcode = 34711 //eventually change this to content of localZipcode var
 	//***comment this out before combining code***
-	storeZipcode = localStorage.setItem("zipcode", zipcode);
+	// storeZipcode = localStorage.setItem("zipcode", zipcode);
 	//change this to zipcode for final app
-	var localZipcode = localStorage.getItem("zipcode", storeZipcode);
+	var localZipcode = localStorage.getItem("zipcode", zipcode);
 
-	//grabbing zip code from user input field
-	// var inputZipcode = $(".for").val();
+	var temp = $("#currentHolder").data("temp");
 
  	//weather underground API key
 	var apiKey = "3f8d0b47644220a7"
@@ -62,13 +56,15 @@ $(document).ready(function() {
 
 		var zip = localStorage.getItem("zipcode", storeZipcode);
 
-		var temp = currentResponse.current_observation.temp_f;
+		var tempData = currentResponse.current_observation.temp_f;
+		$("#currentHolder").data("temp", tempData);
+		console.log(tempData)
 
 		var feelsLike = currentResponse.current_observation.feelslike_f;
 
 		var currentIcon = currentResponse.current_observation.icon_url;
 
-		$(currentHolder).html("<h3>Current Conditions for " + zip + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
+		$(currentHolder).html("<h3>Current Conditions for " + zip + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + tempData + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
 
 		$("#weatherHolder").prepend(currentHolder);
 		// $("body").append(weatherHolder);
@@ -94,9 +90,9 @@ $(document).ready(function() {
 
 				var nightIconImage = "<img src='" + nightIcon + "'>";
 
-				var forecast = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
+				var forecastData = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
+				console.log(forecastData);
 				console.log(forecast);
-
 				var now = new Date();
 				
 				var hours = now.getHours();
@@ -107,7 +103,7 @@ $(document).ready(function() {
 				
 				if (hours > 15) {
 					
-					forecast = forecastResponse.forecast.txt_forecast.forecastday[1].icon;
+					forecastData = forecastResponse.forecast.txt_forecast.forecastday[1].icon;
 					
 					// text = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext; 
 				} 
@@ -120,14 +116,9 @@ $(document).ready(function() {
 				
 
 			$(forecastHolder).html("<h3>Forecast:</h3>" + "<b>" + dayTitle + "</b>" + dayIconImage + dayText + "<br>" + "<b>" + nightTitle + "</b>" + nightIconImage + nightText);
-
+			$("#forecastHolder").data("forecast", forecastData); 
+			// console.log(forecast);
 			$("#weatherHolder").append(forecastHolder);
-
-			//uncomment for Sunita's functions to run.
-			// wizardManBusiness();
-			// wizardManCasual();
-			// wizardWomanCasual();
-			// wizardWomanBusiness();
 			});
 
 		};
@@ -139,54 +130,52 @@ $("#wizard-search").on("click", function() {
 	//grab user input for new zip code
 	var inputZipcode = $("#zip-form").val();
 	console.log(inputZipcode);
-	//gif.data('stillImage', response.data[i].images.fixed_height_still.url);
-	// $(currentHolder).data("inputZipcode", inputZipcode);
-	// var dataZipcode = $(currentHolder).data("inputZipcode");
-	// $(forecastHolder).data("inputZipcode", inputZipcode);
-
-	// var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
-
+	
 	function displayCurrentWithInput() {
-			$("#displayCurrent").empty();
-			//variable for user inputted zip code
-			// var inputZipcode = $("#zip-form").val();
-			
-			// console.log(inputZipcode);
+		$("#displayCurrent").empty();
 
-			if (inputZipcode != "" && inputZipcode != null && inputZipcode != undefined) {
+		if (inputZipcode != "" && inputZipcode != null && inputZipcode != undefined) {
 
-				var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
+			var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
 
-				//created variable for API data request to be made
-				var currentRequestWithInput = {
-					//url for reqest will === above var of urlQuery
-					url: currentURLwithInput,
-					//request method === GET
-					method: "GET"
-				};
+			//created variable for API data request to be made
+			var currentRequestWithInput = {
+				//url for reqest will === above var of urlQuery
+				url: currentURLwithInput,
+				//request method === GET
+				method: "GET"
+			};
 
-				$.ajax(currentRequestWithInput).done(function(currentResponseWithInput) {
-					//console.log currentRequestWithInput var
-					console.log(currentRequestWithInput);
-					//console.log data response, objects from API
-					console.log(currentResponseWithInput);
-					//zip code
-					var zip = currentResponseWithInput.current_observation.display_location.zip;
-					//current temp data
-					var temp = currentResponseWithInput.current_observation.temp_f;
-					//current feels like data
-					var feelsLike = currentResponseWithInput.current_observation.feelslike_f;
-					//current weather icon url data
-					var currentIcon = currentResponseWithInput.current_observation.icon_url;
+			$.ajax(currentRequestWithInput).done(function(currentResponseWithInput) {
+				//console.log currentRequestWithInput var
+				console.log(currentRequestWithInput);
+				//console.log data response, objects from API
+				console.log(currentResponseWithInput);
+				//zip code
+				var zip = currentResponseWithInput.current_observation.display_location.zip;
+				//current temp data
+				var tempData = currentResponseWithInput.current_observation.temp_f;
+				$("#currentHolder").data("temp", tempData);
+				console.log(forecast);
+				//current feels like data
+				var feelsLike = currentResponseWithInput.current_observation.feelslike_f;
+				//current weather icon url data
+				var currentIcon = currentResponseWithInput.current_observation.icon_url;
 
-					$(currentHolder).html("<h3>Current Conditions for " + zip + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + temp + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
-					
-					$("#weatherHolder").prepend(currentHolder);
-					// $("body").append(weatherHolder);
-				});
-			} else {
-				displayCurrent();
-			}
+				$(currentHolder).html("<h3>Current Conditions for " + zip + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + tempData + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
+				
+				$("#weatherHolder").prepend(currentHolder);
+				// $("body").append(weatherHolder);
+			});
+		} else {
+			displayCurrent();
+		}
+
+		//Clothing functions.
+		wizardManBusiness();
+		wizardManCasual();
+		wizardWomanCasual();
+		wizardWomanBusiness();
 		
 	};
 
@@ -219,12 +208,12 @@ $("#wizard-search").on("click", function() {
 					var dayIconImage = "<img src='" + dayIcon + "'>";
 
 					var forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon;
-
+					
 					var now = new Date();
 					var hours = now.getHours();
 					
 					if (hours > 15) {
-						forecast = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon; 
+						forecastData = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon;
 					}
 
 					var nightIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon_url;
@@ -240,6 +229,8 @@ $("#wizard-search").on("click", function() {
 					var nightText = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].fcttext;
 
 					$(forecastHolder).html("<h3>Forecast:</h3><br>" + "<b>" + dayTitle + "</b>" + dayIconImage + dayText + "<br>" + "<b>" + nightTitle + "</b>" + nightIconImage + nightText);
+					$("#forecastHolder").data("forecast", forecastData); 
+					console.log(forecastData);
 
 					$("#weatherHolder").append(forecastHolder);
 
@@ -247,10 +238,19 @@ $("#wizard-search").on("click", function() {
 			} else {
 				displayForecast();
 			}
+		//clothing functions
+		wizardManBusiness();
+		wizardManCasual();
+		wizardWomanCasual();
+		wizardWomanBusiness();
+		
 		};
 
 	displayCurrentWithInput();
 	displayForecastWithInput();
+
+	console.log(temp);
+	console.log(forecast);
 	
 
 // //Call functions---------------------------------------------
