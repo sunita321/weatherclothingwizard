@@ -9,6 +9,10 @@ var gender = $(this).text()
 console.log(gender)
 var name = localStorage.getItem("name")
 console.log(name);
+
+var zipcode = $("#zip-form").val();
+	console.log(zipcode);
+
 return false
 
 
