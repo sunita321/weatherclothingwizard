@@ -27,9 +27,13 @@
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 40;
+    var temp = 44;
 
-    var forecast = "nt_rain";
+    var forecast = "rain";
+
+    var occasion = "business";
+
+    var gender = "male";
 
 
     //***********Women Clothes****************
@@ -123,6 +127,9 @@
           console.log(umberellaImage);
           umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
           $(".umbrella").append(umberellaImage);
+
+          
+
         }
 
     
@@ -600,6 +607,13 @@
           console.log(umberellaImage);
           var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
           $(".umbrella").append(umberellaImage);
+
+          //URL
+          var umbrellaLink = response.products[i].clickUrl;
+          console.log("LINK " + umbrellaLink);
+
+          
+
         }
 
     
@@ -645,7 +659,7 @@
 
     }
 
-//***********Function Calls**************
+//***********Test Function Calls**************
 
 //displayWomenJackets();
 
@@ -893,6 +907,25 @@ function wizardWomanBusiness()
 
 //wizardWomanBusiness();
 
+//********************Gender and Occasion*************************
+
+if (gender == "male" && occasion == "business")
+{
+  wizardManBusiness();
+}
+else if (gender == "male" && occasion == "casual")
+{
+  wizardManCasual();
+}
+else if (gender == "female" && occasion == "business")
+{
+  wizardWomanBusiness();
+}
+else if (gender == "female" && occasion == "casual")
+{
+  wizardWomanCasual();
+}
+
 
 
 
@@ -905,6 +938,5 @@ function wizardWomanBusiness()
 
 
 </html>
-
 
 

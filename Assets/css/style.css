@@ -1,7 +1,43 @@
+body {
+	background: url(http://eskipaper.com/images/evening-background-1.jpg);
+	background-size: 1640px 1060px;
+	background-repeat: no-repeat;
+	padding-bottom: 0px;
+}
+
+
 #header{
 	text-align: center;
 	background-color: black;
 	color: white;
 	font-family: Georgia,serif;
 	margin: 2px;
-	}
+}
+
+#weatherHolder {
+	float: right;
+	width: 50%;
+}
+
+#currentHolder {
+	top: 300px;
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+	border: 2px solid black;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#forecastHolder {
+	top: 550px;
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	border: 2px solid black;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
