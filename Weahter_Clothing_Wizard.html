@@ -29,43 +29,56 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ocassion <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" class="navigation">Business </a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#" class="navigation">Casual </a></li>
-          </ul>
-        </li>
-      </ul>
-      
-    
+    <form role="form">
 
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      
+      <div class="form-group">
+      <div class="col-sm-3">
+          <label for="occasion">Occasion:</label>
+            <select class="form-control" id="occasion-input">
+            <option value="" selected disabled>Please select your Occasion</option>
+              <option value="business">Business</option>
+              <option value="casual">Casual</option>
+            </select>
+      </div>
+      </div>
+      
+      
+     <!-- Zipcode input-->
+
+    <div class="form-group">
+    <div class="col-sm-2">
+    <label for="zipcode">Zip Code</label>  
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+      <input class="form-control" id="zip-form" placeholder="Enter Zip Code" type="text" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-sm-2">
+      <button class="btn btn-success" id="wizard-search" type="submit">Submit</button>
+    </div>
+    </div>
+
+
+ </form>
+
       <!-- TEXT FIELD & Submit Button Ends-->
       <div class="member"><a href="">not a member yet? </a></div>
       </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div> 
   </nav>    
 </div>
 
-<div class="container-fluid" id="infoContainer">
-
-
-</div>
+<div class="container-fluid" id="clothingResults"></div>
+<div class="container-fluid" id="weatherHolder"></div>
 </div>
 	
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="assets/js/javascript.js"></script>
+  <script src="sumit.js"></script>
 
 </body>
 </html>	
