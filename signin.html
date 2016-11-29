@@ -83,24 +83,24 @@ $(document).ready(function() {
         console.log(gender);
         console.log(zipcode);
 
-        $("#contact-form").valid({
-        rules: {
-        name: {
-            minlength: 2,
-            required: true
-        },
-        zipcode: {
-            minlength: 5,
-            required: true
-        }
-    },
-    highlight: function (element) {
-        $(element).closest('.form-control').removeClass('success').addClass('error');
-    },
-    success: function (element) {
-        element.text('OK!').addClass('valid')
-            .closest('.form-control').removeClass('error').addClass('success');
-    }
+    //     $("#contact-form").valid({
+    //     rules: {
+    //     name: {
+    //         minlength: 2,
+    //         required: true
+    //     },
+    //     zipcode: {
+    //         minlength: 5,
+    //         required: true
+    //     }
+    // },
+    // highlight: function (element) {
+    //     $(element).closest('.form-control').removeClass('success').addClass('error');
+    // },
+    // success: function (element) {
+    //     element.text('OK!').addClass('valid')
+    //         .closest('.form-control').removeClass('error').addClass('success');
+    // }
     });
 
 
@@ -127,7 +127,7 @@ $(document).ready(function() {
 
         
     });
-    });
+    };
 
 
 </script>
