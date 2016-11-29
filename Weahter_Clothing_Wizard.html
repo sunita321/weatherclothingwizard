@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
   <title>Weather Clothing Wizard</title>
 </head>
-
 <body>
 <div class="container-fluid">
-  
+      
       <div class="jumbotron" id="header">
-       <h1>Weather Clothing Wizard</h1>
+     	<h1>Weather Clothing Wizard</h1>
       </div>
 
   <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+   
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -31,67 +29,43 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <form role="form">
-
-      <div class="form-group">
-       <div class="col-sm-3">
-          <label for="gender">Gender:</label>
-            <select class="form-control" id="gender-input" required>
-              <option value="" selected disabled>Please select your Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-      </div>
-      </div>
-      <div class="form-group">
-      <div class="col-sm-3">
-          <label for="occasion">Occasion:</label>
-            <select class="form-control" id="occasion-input" required>
-            <option value="" selected disabled>Please select your Occasion</option>
-              <option value="business" >Business</option>
-              <option value="casual">Casual</option>
-            </select>
-      </div>
-      </div>
-       <!-- Zipcode text field & submit button-->
-
-    <div class="form-group">
-    <div class="col-sm-2">
-    <label for="zipcode">Change Zip Code</label>  
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-      <input class="form-control" id="zip-form" placeholder="Enter Zip Code" type="text" pattern="^[0-9]{5}(?:-[0-9]{4})?$">
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="col-sm-2">
-      <button class="btn btn-default" id="wizard-search" type="submit">Submit</button>
-    </div>
-    </div>
-    </div> 
-      <!-- TEXT FIELD & Submit Button Ends-->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ocassion <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="navigation">Business </a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" class="navigation">Casual </a></li>
+          </ul>
+        </li>
+      </ul>
       
+    
 
-    <div class="member">
-      <a href="">not a member yet? </a>
-    </div>
-
-    </form>
-  </div>
-</nav>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <!-- TEXT FIELD & Submit Button Ends-->
+      <div class="member"><a href="">not a member yet? </a></div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>    
+</div>
 
 <div class="container-fluid" id="infoContainer">
-  <div class="container" id="weatherHolder">
 
-  </div>
+
 </div>
-  
+</div>
+	
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="assets/js/javascript.js"></script>
-  <script src="assets/javascript/weatherLogic.js"></script>
 
 </body>
-</html>
+</html>	

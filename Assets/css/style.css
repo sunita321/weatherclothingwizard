@@ -7,13 +7,21 @@ body {
 
 
 #header{
+	
 	text-align: center;
 	background-color: black;
 	color: white;
 	font-family: Georgia,serif;
 	margin: 2px;
-<<<<<<< HEAD
+
 }
+
+
+.member{
+	float: right;
+	padding-top: 15px;
+}
+
 
 #weatherHolder {
 	float: right;
@@ -42,16 +50,12 @@ body {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-=======
-	}
 
-.member{
-	float: right;
-}
+
 
 #wizard-search{
 	margin-top: 25px;
 
 	margin-bottom: 10px;
 }
->>>>>>> 01945b3f2f4f90db1a26d5b4694cda7433418aaf
+
