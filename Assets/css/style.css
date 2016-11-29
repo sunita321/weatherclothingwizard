@@ -13,6 +13,7 @@ body {
 	color: white;
 	font-family: Georgia,serif;
 	margin: 2px;
+
 }
 
 
@@ -49,4 +50,12 @@ body {
 	padding-left: 10px;
 	padding-right: 10px;
 }
->>>>>>> 46f31db5e0a5bc64a638339780d95528b60f9677
+
+
+
+#wizard-search{
+	margin-top: 25px;
+
+	margin-bottom: 10px;
+}
+

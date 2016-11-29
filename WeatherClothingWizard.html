@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <title>Weather Clothing Wizard</title>
+</head>
+<body>
+<div class="container-fluid">
+  
+      <div class="jumbotron" id="header">
+       <h1>Weather Clothing Wizard</h1>
+      </div>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Brand</a>-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+  <form role="form">
+
+      <div class="form-group">
+       <div class="col-sm-3">
+          <label for="gender">Gender:</label>
+            <select class="form-control" id="gender-input">
+              <option value="" selected disabled>Please select your Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+      </div>
+      </div>
+      <div class="form-group">
+      <div class="col-sm-3">
+          <label for="occasion">Occasion:</label>
+            <select class="form-control" id="occasion-input">
+            <option value="" selected disabled>Please select your Occasion</option>
+              <option value="business">Business</option>
+              <option value="casual">Casual</option>
+            </select>
+      </div>
+      </div>
+      
+      
+     <!-- Zipcode input-->
+
+    <div class="form-group">
+    <div class="col-sm-2">
+    <label for="zipcode">Zip Code</label>  
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+      <input class="form-control" id="zip-form" placeholder="Enter Zip Code" type="text" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="col-sm-2">
+      <button class="btn btn-success" id="wizard-search" type="submit">Submit</button>
+    </div>
+    </div>
+
+
+ </form>
+
+         
+  
+
+<div class="container-fluid" id="infoContainer">
+
+
+</div>
+</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  
+  <script src="submit.js"></script>
+
+</body>
+</html> 
