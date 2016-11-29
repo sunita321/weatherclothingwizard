@@ -7,12 +7,20 @@ body {
 
 
 #header{
+	
 	text-align: center;
 	background-color: black;
 	color: white;
 	font-family: Georgia,serif;
 	margin: 2px;
 }
+
+
+.member{
+	float: right;
+	padding-top: 15px;
+}
+
 
 #weatherHolder {
 	float: right;
@@ -41,3 +49,4 @@ body {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+>>>>>>> 46f31db5e0a5bc64a638339780d95528b60f9677
