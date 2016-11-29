@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Greeting work</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<style type="text/css">
+		
+		#time {
+			font-family: georgia, serif;
+			text-align: center;
+			color: white;
+			margin-top: 90px;
+			font-size: 40px;
+		}
+
+		body {
+			background:url(http://eskipaper.com/images/evening-background-1.jpg);
+			background-size: 100% ;
+			background-repeat: no-repeat;
+
+		}
+		#header{
+			text-align: center;
+			background-color: black;
+			color: white;
+			font-family: Georgia,serif;
+			margin: 2px;
+			}
+
+.member{
+	float: right;
+}
+	
+	</style>
+		
+		
+
+</head>
+
+<body>
+		<!-- CSS for greeting -->
+		
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+	<div class="jumbotron" id="header">
+ 	 <h1>Weather Clothing Wizard</h1>
+	</div>
+
+	<div class="container">
+			<div id="time">
+				<p>+msg+</p>
+			</div>
+		</div>	
+
+
+
+		
+	<!-- * Greetings 
+	- After initial sign in 
+	Goodmorning or Afternoon or Evening + Name
+	-(If statements depending on the time)
+	-Jquery to differentiate from 
+			If 6am-12pm = good morning
+			If 12pm-5pm = good afternoon
+			Else = Good Evening
+	- Greetings stays on page
+	-HTML needed for greeting screen
+	-css needed for greeting screen
+	-Jquery to get info from local storage
+	-Jquery to display name ("good morning, sam") to local storage
+
+
+
+	 -->
+	<!-- container for the greeting -->
+	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+		// -----------------------------------------------
+		// jquery for the greeting 
+		var now = new Date();
+		var hours = now.getHours();
+		var msg;
+		
+
+
+		var name = "";
+	 	localStorage.setItem("name", name);
+		var storedName = localStorage.getItem("name");
+
+		if (hours < 12) msg = "Good Morning ";
+		else if (hours < 18) msg = "Good Afternoon ";
+		else msg = "Good Evening ";
+		$('#time').html(msg + storedName.toUpperCase() + "!");
+
+		$('body').click(function(){
+			window.open('www.google.com');
+			
+		});
+			
+		
+		
+		
+		
+
+			
+      
+
+       // < -----------------------------------------------------------
+
+
+
+       // Don't refresh the page!
+       
+
+   });
+
+
+	</script>
+
+	
+
+</body>
+</html>
