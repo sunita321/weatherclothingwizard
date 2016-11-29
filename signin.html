@@ -6,11 +6,14 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="lib/jquery.validate.js"></script>
 </head>
 <body {
         style="background:url(http://eskipaper.com/images/evening-background-1.jpg);
-            background-size: 1280px 700px;
-            background-repeat: no-repeat;
+        background-size: 1280px 700px;
+        background-repeat: no-repeat;
+        background max-width: 100%
+        
         })">
 
 
@@ -30,14 +33,9 @@
                 <h2>Initial Setup</h2>
                 <hr class="colorgraph">
                 <div class="form-group">
-                <label class="control-label" for="firstName">First Name</label>
+                <label class="control-label" for="name">Name</label>
                 <div class="form-group">
-                    <input type="firstName" firstnName="firstName" id="firstName" class="form-control input-lg" placeholder="Your First Name">
-                </div>
-                <div class="form-group">
-                <label class="control-label" for="lastName">Last Name</label>
-                <div class="form-group">
-                    <input type="lastName" name="lastName" id="lastName" class="form-control input-lg" placeholder="Your Last Name">
+                    <input type="name" name="name" id="name" class="form-control input-lg" placeholder="Your Name">
                 </div>
                  <div class="form-group">
                  <label class="control-label" for="Zipcode">Zipcode</label>
@@ -75,27 +73,21 @@ $(document).ready(function() {
     $("#addUser").on("click", function() {
 
         // Capture User Inputs and store into variables
-        var firstName = $('#firstName').val().trim();
-        var lastName = $('#lastName').val().trim();
+        var name = $('#name').val().trim();
         var gender = $('#gender').val().trim(); 
         var zipcode = $('#zipcode').val().trim(); 
        
 
         // Console log each of the user inputs to confirm you are receiving them
-        console.log(firstName);
-        console.log(lastName);
+        console.log(name);
         console.log(gender);
         console.log(zipcode);
 
-        $("#contact-form").validator({
+        $("#contact-form").valid({
         rules: {
-        firstName: {
+        name: {
             minlength: 2,
             required: true
-        },
-        lastName: {
-            required: true,
-            email: true
         },
         zipcode: {
             minlength: 5,
