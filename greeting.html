@@ -28,9 +28,14 @@
 			margin: 2px;
 			}
 
-.member{
-	float: right;
-}
+		.member{
+			float: right;
+		}
+		p{
+			color: white;
+			text-align: center;
+		}
+		
 	
 	</style>
 		
@@ -52,8 +57,11 @@
 	<div class="container">
 			<div id="time">
 				<p>+msg+</p>
+
+
 			</div>
 		</div>	
+		<p>Click Anywhere To Continue</p>
 
 
 
@@ -89,17 +97,17 @@
 		
 
 
-		var name = "";
+		// var name = "";
 	 	localStorage.setItem("name", name);
-		var storedName = localStorage.getItem("name");
+		var storedName = localStorage.getItem("name", name);
 
 		if (hours < 12) msg = "Good Morning ";
 		else if (hours < 18) msg = "Good Afternoon ";
-		else msg = "Good Evening ";
+		else msg = "Good Evening " + "name", name;
 		$('#time').html(msg + storedName.toUpperCase() + "!");
 
 		$('body').click(function(){
-			window.open('www.google.com');
+			window.location.href = 'Weahter_Clothing_Wizard.html'
 			
 		});
 			
