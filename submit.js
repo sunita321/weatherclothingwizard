@@ -284,6 +284,9 @@ $(document).ready(function()
 	displayCurrentWithInput();
 	displayForecastWithInput();
 
+	// console.log(temp);
+	// console.log(forecast);
+
 		return false;
 	});
 
