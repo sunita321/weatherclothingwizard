@@ -10,10 +10,8 @@
 </head>
 <body {
         style="background:url(http://eskipaper.com/images/evening-background-1.jpg);
-        background-size: 1280px 700px;
+        background-size: 100%;
         background-repeat: no-repeat;
-        background max-width: 100%
-        
         })">
 
 
@@ -28,27 +26,31 @@
 
 <div class="row" style="margin-top:5px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <form role="form">
+    <form role="form" id="contact" method="post" action="">
             <fieldset>
                 <h2>Initial Setup</h2>
                 <hr class="colorgraph">
+
+                <!-- Name -->
                 <div class="form-group">
                 <label class="control-label" for="name">Name</label>
                 <div class="form-group">
-                    <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Your Name" required="required">
-
+                    <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Your Name" required value=""/>  
                 </div>
-        
+                
+                <!-- Zipcode -->
                  <div class="form-group">
                  <label class="control-label" for="Zipcode">Zipcode</label>
                 <div class="form-group">
-                    <input type="text" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Your Zipcode" pattern="^[0-9]{5}(?:-[0-9]{4})?$" required="required">
+                    <input type="text" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Your Zipcode" required value="" pattern="^[0-9]{5}(?:-[0-9]{4})?$"/>
                 </div>
+
+                <!-- Gender -->
                  <div class="form-group">
                  <label class="control-label" for="Gender">Gender</label>
                  <div class="form-group">  
-                <select id="gender" name="gender" required="required">
-                        <option type="na" selected="">Choose One:</option>
+                <select id="gender" name="gender" required value=""/>
+                        <option type="na" selected disabled>Choose One:</option>
                         <option type="male">Male</option>
                         <option type="female">Female</option>
                 </select>
@@ -56,7 +58,8 @@
                 <hr class="colorgraph">
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <a href="#" class="btn btn-lg btn-primary btn-block" id="addUser">Submit</a>
+                        <!-- <a href="#" type="submit" class="btn btn-lg btn-primary btn-block" id="addUser" value="Submit"></a> -->
+                        <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block" id="addUser"/>
                     </div>
                 </div>
             </fieldset>
@@ -71,14 +74,16 @@
 
 $(document).ready(function() {
 
+
     // Capture Button Click
     $("#addUser").on("click", function() {
 
         // Capture User Inputs and store into variables
         var name = $('#name').val().trim();
-        var gender = $('#gender').val().trim(); 
+        var gender = $('#gender').val(); 
         var zipcode = $('#zipcode').val().trim(); 
        
+        // Valide User Inputs
 
         // Console log each of the user inputs to confirm you are receiving them
         console.log(name);
@@ -86,24 +91,26 @@ $(document).ready(function() {
         console.log(zipcode);
 
         // < -----------------------------------------------------------
+        if (name != null && name != "" && name != undefined && zipcode != null && zipcode != "" && zipcode != undefined && gender != null && gender != "" && gender != undefined)
+            {
+        
 
         // Clear localStorage
         localStorage.clear();
 
         // Store all content into localStorage
         localStorage.setItem("name", name); 
-        localStorage.setItem("gender", gender);
         localStorage.setItem("zipcode", zipcode);
-
+        localStorage.setItem("gender", gender);
         // < -----------------------------------------------------------
     
 
 
-        window.location.href = '#'
+        window.location.href = 'greeting'
 
 
 
-        
+    }
     });
     });
 
