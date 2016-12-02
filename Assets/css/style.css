@@ -1,8 +1,10 @@
 body {
 	background: url(http://eskipaper.com/images/evening-background-1.jpg);
-	background-size: 2000px 1064px;
+	background-size: 2000px 1070px;
 	background-repeat: no-repeat;
 	padding-bottom: 0px;
+	background-attachment: fixed;
+	
 }
 
 
@@ -30,10 +32,13 @@ body {
 
 #currentHolder {
 	top: 300px;
-	width: 100%;
+	width: 25%;
 	height: 250px;
 	overflow: hidden;
+	position: absolute;
+    right: 15px;
 	border: 2px solid black;
+	margin-bottom: 20px;
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -41,8 +46,10 @@ body {
 
 #forecastHolder {
 	top: 550px;
-	width: 100%;
+	width: 25%;
 	height: 250px;
+	position: absolute;
+    right: 15px;
 	overflow: hidden;
 	margin-bottom: 20px;
 	border: 2px solid black;
@@ -53,21 +60,31 @@ body {
 
 
 
-#wizard-search{
+#wizard-search
+{
 	margin-top: 25px;
 
 	margin-bottom: 10px;
 }
 
 
-#clothingResults {
+#clothingResults 
+{
 	top: 300px;
-	width: 100%;
-	height: 1000px;
+	width: 72%;
+	position: absolute;
+    left: 15px;
 	overflow: hidden;
-	border: 2px solid black;
-	text-align: center;
+	border: 2px solid green;
 	padding-left: 10px;
 	padding-right: 10px;
+	color: white;
+	text-align: center;
+
+	
 }
 
+.clothing_tops
+{
+
+}

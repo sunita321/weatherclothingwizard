@@ -6,7 +6,7 @@
 $(document).ready(function()
 
 {	
-	localStorage.setItem("gender", "male")
+	localStorage.setItem("gender", "female")
 
 	localStorage.setItem("zipcode", 32901)
 
