@@ -1,40 +1,17 @@
-<!-- Application Purpose: To get clothing data using the ShopStyle API-->
-<html>
-<head>
-  <title>ShopStyle Data</title>
-  <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-</head>
-<body>
-  
-  <!-- Retrieved Data will be dumped here -->
-  <div class="category_tops"></div>
-  <div class="clothing_tops"></div>
-  <div class="category_bottoms"></div>
-  <div class="clothing_bottoms"></div>
-  <div class="category_jackets"></div>
-  <div class="clothing_jackets"></div>
-  <div class="category_umbrella"></div>
-  <div class="umbrella"></div>
-
-
- 
-  <script type="text/javascript">
-   // This is our API Key
+// This is our API Key
     var ShopStyleAPIKey = "uid7169-36888263-28";
     var clothingImage_top = "";
     var clothingImage_bottom = "";
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 44;
+    var temp;
 
+    var forecast ;
 
-    var forecast = "rain ";
+    var occasion;
 
-    var occasion = "business";
-
-    var gender = "male";
+    var gender;
 
 
     //***********Women Clothes****************
@@ -413,6 +390,8 @@
     }
 
     function displayMenTopsBusiness()
+
+    
     {
       $(".clothing_tops").empty();
 
@@ -445,7 +424,7 @@
 
     }
 
-        function displayMenPantsBusiness()
+    function displayMenPantsBusiness()
     {
       $(".clothing_bottoms").empty();
 
@@ -579,7 +558,7 @@
 
     //***********Umbrellas****************
 
-        function displayMENUmbrella()
+    function displayMENUmbrella()
     {
       $(".umbrella").empty();
 
@@ -909,34 +888,23 @@ function wizardWomanBusiness()
 //wizardWomanBusiness();
 
 //********************Gender and Occasion*************************
-
-if (gender == "male" && occasion == "business")
+function Sunita()
 {
-  wizardManBusiness();
+
+  if (gender == "male" && occasion == "business")
+  {
+    wizardManBusiness();
+  }
+  else if (gender == "male" && occasion == "casual")
+  {
+    wizardManCasual();
+  }
+  else if (gender == "female" && occasion == "business")
+  {
+    wizardWomanBusiness();
+  }
+  else if (gender == "female" && occasion == "casual")
+  {
+    wizardWomanCasual();
+  }
 }
-else if (gender == "male" && occasion == "casual")
-{
-  wizardManCasual();
-}
-else if (gender == "female" && occasion == "business")
-{
-  wizardWomanBusiness();
-}
-else if (gender == "female" && occasion == "casual")
-{
-  wizardWomanCasual();
-}
-
-
-
-
-
-  </script>
-
-
-</body>
-
-
-
-</html>
-
