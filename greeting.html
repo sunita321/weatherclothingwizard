@@ -96,12 +96,19 @@
 		var msg;
 		
 
-		var storedName = localStorage.getItem("name", name);
+		var storedName = localStorage.getItem("name");
+
+		//Capitalize first letter in string
+
+		String.prototype.capitalize = function() 
+		{
+			return this.charAt(0).toUpperCase() + this.slice(1);
+		};
 
 		if (hours < 12) msg = "Good Morning ";
 		else if (hours < 18) msg = "Good Afternoon ";
 		else msg = "Good Evening " + name;
-		$('#time').html(msg + storedName.toUpperCase() + "!");
+		$('#time').html(msg + storedName.capitalize() + "!");
 
 		$('body').click(function(){
 			window.location.href = 'Weahter_Clothing_Wizard.html'
@@ -109,9 +116,7 @@
 		});
 			
 		
-		
-		
-		
+
 
 			
       
