@@ -98,12 +98,12 @@
 
 
 		// var name = "";
-	 	localStorage.setItem("name", name);
+	 	// localStorage.setItem("name", name);
 		var storedName = localStorage.getItem("name", name);
 
 		if (hours < 12) msg = "Good Morning ";
 		else if (hours < 18) msg = "Good Afternoon ";
-		else msg = "Good Evening " + "name", name;
+		else msg = "Good Evening " + name;
 		$('#time').html(msg + storedName.toUpperCase() + "!");
 
 		$('body').click(function(){
