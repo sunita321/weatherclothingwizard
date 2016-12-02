@@ -74,6 +74,9 @@
 
 $(document).ready(function() {
 
+    $("#contact").on("submit", function() {
+    return false;
+    });
 
     // Capture Button Click
     $("#addUser").on("click", function() {
@@ -104,7 +107,6 @@ $(document).ready(function() {
         localStorage.setItem("gender", gender);
         // < -----------------------------------------------------------
     
-
 
 
      window.location.href = 'greeting.html'
