@@ -46,13 +46,13 @@
                 </div>
 
                 <!-- Gender -->
-                 <div class="form-group">
+                <div class="form-group">
                  <label class="control-label" for="Gender">Gender</label>
-                 <div class="form-group">  
-                <select id="gender" name="gender" required value=""/>
-                        <option type="na" selected disabled>Choose One:</option>
-                        <option type="male">Male</option>
-                        <option type="female">Female</option>
+                 <div class="form-group">
+                <select name="title" id="gender" required>
+                    <option value="">Select One</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                 </select>
 
                 <hr class="colorgraph">
@@ -80,15 +80,15 @@ $(document).ready(function() {
 
         // Capture User Inputs and store into variables
         var name = $('#name').val().trim();
-        var gender = $('#gender').val(); 
         var zipcode = $('#zipcode').val().trim(); 
+        var gender = $('#gender').val(); 
        
         // Valide User Inputs
 
         // Console log each of the user inputs to confirm you are receiving them
         console.log(name);
-        console.log(gender);
         console.log(zipcode);
+        console.log(gender);
 
         // < -----------------------------------------------------------
         if (name != null && name != "" && name != undefined && zipcode != null && zipcode != "" && zipcode != undefined && gender != null && gender != "" && gender != undefined)
@@ -106,11 +106,9 @@ $(document).ready(function() {
     
 
 
-        window.location.href = 'greeting'
 
-
-
-    }
+     window.location.href = 'greeting.html'
+    }  
     });
     });
 
