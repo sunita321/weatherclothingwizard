@@ -86,5 +86,20 @@ body {
 
 .clothing_tops
 {
+margin: 20px;
+}
 
+.clothing_bottoms
+{
+margin: 20px;
+}
+
+.clothing_jackets
+{
+margin: 20px;
+}
+
+.umbrella
+{
+margin: 20px;
 }
