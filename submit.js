@@ -6,9 +6,9 @@
 $(document).ready(function()
 
 {	
-	localStorage.setItem("gender", "female")
+	//localStorage.getItem("gender", "female")
 
-	localStorage.setItem("zipcode", 32901)
+	localStorage.getItem("zipcode")
 
 	gender = localStorage.getItem("gender");
 	console.log(gender);
@@ -175,7 +175,7 @@ $(document).ready(function()
 		$('.clothing_tops').empty();
 		$('.clothing_bottoms').empty();
 		$(".clothing_jackets").empty();
-		
+
 		$('.category_umbrella').empty();		
 		$('.category_jackets').empty();
 		$('.category_tops').empty();

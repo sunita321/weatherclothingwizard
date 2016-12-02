@@ -13,7 +13,7 @@
 
     var gender;
 
-    //$("#clothingResults").empty();
+    
     //***********Women Clothes****************
 
     function displayWomenJackets()
