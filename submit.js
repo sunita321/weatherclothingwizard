@@ -172,7 +172,17 @@ $(document).ready(function()
 		//empty weather and clothing divs before adding data to them
 		$("#weatherHolder").empty();
 		$(".umbrella").empty();
-		$('.category_umbrella').empty();
+		$('.clothing_tops').empty();
+		$('.clothing_bottoms').empty();
+		$(".clothing_jackets").empty();
+		
+		$('.category_umbrella').empty();		
+		$('.category_jackets').empty();
+		$('.category_tops').empty();
+		$('.category_bottoms').empty();
+
+		
+		
 
 		
 
