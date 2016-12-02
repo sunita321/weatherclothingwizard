@@ -13,7 +13,7 @@
 
     var gender;
 
-
+    //$("#clothingResults").empty();
     //***********Women Clothes****************
 
     function displayWomenJackets()
@@ -39,8 +39,8 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+         $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
         }
 
     
@@ -108,8 +108,11 @@
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
+
+           $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
 
           
 
@@ -145,8 +148,12 @@
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -179,8 +186,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -213,8 +223,11 @@
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -247,8 +260,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -281,8 +297,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -318,8 +337,11 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -353,8 +375,11 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -385,8 +410,11 @@
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
     
@@ -420,8 +448,11 @@
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+           $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -453,8 +484,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -486,8 +520,11 @@
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -519,8 +556,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -552,8 +592,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -578,25 +621,23 @@
 
       //Transfer content to HTML
       
-
-
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Men's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
 
-          //URL
-          var umbrellaLink = response.products[i].clickUrl;
-          console.log("LINK " + umbrellaLink);
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
 
+          
           
 
         }
@@ -626,15 +667,18 @@
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Women's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
            
