@@ -87,6 +87,7 @@ body {
 .clothing_tops
 {
 margin: 20px;
+background-color: white;
 
 }
 
@@ -94,11 +95,13 @@ margin: 20px;
 .clothing_bottoms
 {
 margin: 20px;
+background-color: white;
 }
 
 .clothing_jackets
 {
 margin: 20px;
+background-color: white;
 }
 
 .umbrella
