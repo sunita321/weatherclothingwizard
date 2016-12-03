@@ -145,3 +145,10 @@ p{
 color: white;
 text-align: center;
 }
+
+/*Css for URL*/
+
+
+#clothingResults div img:hover { 
+  opacity: 0.6;
+} 
