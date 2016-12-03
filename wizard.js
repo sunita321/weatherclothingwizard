@@ -21,7 +21,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -53,7 +53,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -90,7 +90,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -128,7 +128,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -166,7 +166,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -203,7 +203,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -240,7 +240,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -277,7 +277,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -317,7 +317,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -355,7 +355,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -392,7 +392,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -429,7 +429,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -465,7 +465,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -501,7 +501,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -537,7 +537,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -573,7 +573,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -611,7 +611,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -652,7 +652,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=4";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
