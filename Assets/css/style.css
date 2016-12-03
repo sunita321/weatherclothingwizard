@@ -152,3 +152,27 @@ text-align: center;
 #clothingResults div img:hover { 
   opacity: 0.6;
 } 
+
+/*Responsive Media Query 640*/
+
+@media only screen and (max-width: 640px) {
+
+	#clothingResults{
+		width: 72%;
+		max-width: 768px;
+		top: 500px;
+	}
+
+	#currentHolder  {
+		top: 800px;
+		overflow: auto;
+
+	}
+	
+	#forecastHolder {
+		overflow: auto;
+
+	}
+
+}
+	
