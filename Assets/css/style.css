@@ -164,12 +164,15 @@ text-align: center;
 	}
 
 	#currentHolder  {
-		top: 800px;
+		top: 550px;
+		height: 350px;
 		overflow: auto;
 
 	}
 	
 	#forecastHolder {
+		top: 900px;
+		height: 350px;
 		overflow: auto;
 
 	}
