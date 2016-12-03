@@ -1,43 +1,19 @@
-<!-- Application Purpose: To get clothing data using the ShopStyle API-->
-<html>
-<head>
-  <title>ShopStyle Data</title>
-  <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-  <link rel="icon" href="favicon.ico">
-</head>
-<body>
-  
-  <!-- Retrieved Data will be dumped here -->
-  <div class="category_tops"></div>
-  <div class="clothing_tops"></div>
-  <div class="category_bottoms"></div>
-  <div class="clothing_bottoms"></div>
-  <div class="category_jackets"></div>
-  <div class="clothing_jackets"></div>
-  <div class="category_umbrella"></div>
-  <div class="umbrella"></div>
-
-
- 
-  <script type="text/javascript">
-   // This is our API Key
+// This is our API Key
     var ShopStyleAPIKey = "uid7169-36888263-28";
     var clothingImage_top = "";
     var clothingImage_bottom = "";
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 44;
+    var temp;
 
+    var forecast ;
 
-    var forecast = "rain ";
+    var occasion;
 
-    var occasion = "business";
+    var gender;
 
-    var gender = "male";
-
-
+    
     //***********Women Clothes****************
 
     function displayWomenJackets()
@@ -45,7 +21,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -63,8 +39,8 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+         $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
         }
 
     
@@ -77,7 +53,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -95,8 +71,13 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+         
+          //$(".clothing_jackets").append(clothingImage_jacket);
+
         }
 
     
@@ -109,7 +90,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -127,8 +108,11 @@
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
+
+           $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
 
           
 
@@ -144,7 +128,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -164,8 +148,12 @@
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -178,7 +166,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -198,8 +186,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -212,7 +203,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -232,8 +223,11 @@
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -246,7 +240,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -266,8 +260,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -280,7 +277,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -300,8 +297,11 @@
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -317,7 +317,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -337,8 +337,11 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -352,7 +355,7 @@
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -372,8 +375,11 @@
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -386,7 +392,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -404,8 +410,11 @@
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
     
@@ -414,11 +423,13 @@
     }
 
     function displayMenTopsBusiness()
+
+
     {
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -437,8 +448,11 @@
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+           $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -446,12 +460,12 @@
 
     }
 
-        function displayMenPantsBusiness()
+    function displayMenPantsBusiness()
     {
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -470,8 +484,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -484,7 +501,7 @@
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -503,8 +520,11 @@
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -517,7 +537,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -536,8 +556,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -550,7 +573,7 @@
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -569,8 +592,11 @@
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -580,12 +606,12 @@
 
     //***********Umbrellas****************
 
-        function displayMENUmbrella()
+    function displayMENUmbrella()
     {
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -595,25 +621,23 @@
 
       //Transfer content to HTML
       
-
-
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Men's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
 
-          //URL
-          var umbrellaLink = response.products[i].clickUrl;
-          console.log("LINK " + umbrellaLink);
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
 
+          
           
 
         }
@@ -628,7 +652,7 @@
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=5";
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=4";
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -643,15 +667,18 @@
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Women's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
            
@@ -910,34 +937,23 @@ function wizardWomanBusiness()
 //wizardWomanBusiness();
 
 //********************Gender and Occasion*************************
-
-if (gender == "male" && occasion == "business")
+function Sunita()
 {
-  wizardManBusiness();
+
+  if (gender == "male" && occasion == "business")
+  {
+    wizardManBusiness();
+  }
+  else if (gender == "male" && occasion == "casual")
+  {
+    wizardManCasual();
+  }
+  else if (gender == "female" && occasion == "business")
+  {
+    wizardWomanBusiness();
+  }
+  else if (gender == "female" && occasion == "casual")
+  {
+    wizardWomanCasual();
+  }
 }
-else if (gender == "male" && occasion == "casual")
-{
-  wizardManCasual();
-}
-else if (gender == "female" && occasion == "business")
-{
-  wizardWomanBusiness();
-}
-else if (gender == "female" && occasion == "casual")
-{
-  wizardWomanCasual();
-}
-
-
-
-
-
-  </script>
-
-
-</body>
-
-
-
-</html>
-

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Molengo');
+
 body {
 	background: url(http://eskipaper.com/images/evening-background-1.jpg);
-	background-size: 2000px 1064px;
+	background-size: 2000px 1070px;
 	background-repeat: no-repeat;
 	padding-bottom: 0px;
+	background-attachment: fixed;
+	
 }
 
 
@@ -30,10 +34,13 @@ body {
 
 #currentHolder {
 	top: 300px;
-	width: 100%;
+	width: 25%;
 	height: 250px;
 	overflow: hidden;
+	position: absolute;
+    right: 15px;
 	border: 2px solid black;
+	margin-bottom: 20px;
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -41,8 +48,10 @@ body {
 
 #forecastHolder {
 	top: 550px;
-	width: 100%;
+	width: 25%;
 	height: 250px;
+	position: absolute;
+    right: 15px;
 	overflow: hidden;
 	margin-bottom: 20px;
 	border: 2px solid black;
@@ -53,9 +62,120 @@ body {
 
 
 
-#wizard-search{
+#wizard-search
+{
 	margin-top: 25px;
 
 	margin-bottom: 10px;
 }
 
+
+#clothingResults 
+{
+	top: 300px;
+	width: 72%;
+	position: absolute;
+    left: 15px;
+	overflow: hidden;
+	
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+	text-align: center;
+
+	
+}
+
+.clothing_tops
+{
+margin: 20px;
+background-color: white;
+
+}
+
+
+.clothing_bottoms
+{
+margin: 20px;
+background-color: white;
+}
+
+.clothing_jackets
+{
+margin: 20px;
+background-color: white;
+}
+
+.umbrella
+{
+margin: 20px;
+background-color: white;
+}
+
+
+.category_umbrella{
+font-family: 'Molengo', sans-serif;
+font-size: 25px;
+}	
+.category_jackets{
+font-family: 'Molengo', sans-serif;
+font-size: 25px;
+}
+.category_tops{
+font-family: 'Molengo', sans-serif;
+font-size: 25px;
+}
+.category_bottoms{
+font-family: 'Molengo', sans-serif;
+font-size: 25px;
+
+}
+
+/*Css for greeting*/
+
+#time {
+font-family: georgia, serif;
+text-align: center;
+color: white;
+margin-top: 90px;
+font-size: 40px;
+}
+
+p{
+color: white;
+text-align: center;
+}
+
+/*Css for URL*/
+
+
+#clothingResults div img:hover { 
+  opacity: 0.6;
+} 
+
+/*Responsive Media Query 640*/
+
+@media only screen and (max-width: 640px) {
+
+	#clothingResults{
+		width: 72%;
+		max-width: 768px;
+		top: 500px;
+	}
+
+	#currentHolder  {
+		top: 550px;
+		height: 350px;
+		overflow: auto;
+
+	}
+	
+	#forecastHolder {
+		top: 900px;
+		height: 350px;
+		overflow: auto;
+
+	}
+
+}
+	

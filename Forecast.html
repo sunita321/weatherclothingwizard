@@ -6,6 +6,7 @@
   <title>Weather Underground Data</title>
   <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   
@@ -26,7 +27,7 @@
 
     var zip = "32901";
     // Here we are building the URL we need to query the database
-    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/forecast/q/" + zip +".json";
+    var queryURL = "http://api.wunderground.com/api/bc980387c56eb3ec/conditions/forecast/q/" + zip +".json";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API
