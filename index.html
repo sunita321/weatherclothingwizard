@@ -1,133 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Weather Clothing Wizard</title>
 
-</head>
-<body {
-        style="background:url(http://eskipaper.com/images/evening-background-1.jpg);
-        
-        background-size: 2000px 1070px;
-        background-repeat: no-repeat;
-        padding-bottom: 0px;
-        background-attachment: fixed;    
-        color: white;
-        })">
+    <!-- Bootstrap core CSS -->
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="Assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="Assets/css/cover.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="Assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 
-<div class="container-fluid">
-<div class="jumbotron" id="header" style="text-align: center;
-    background-color: black;
-    color: white;
-    font-family: Georgia,serif;margin: 2px;">
-         <h1>Weather Clothing Wizard</h1>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+
+          <div class="inner cover">
+            <div class="row">
+              <div class="col-md-12" style="margin-bottom: 40px; font-family: georgia;">
+                <h1 class="wizard-title">Welcome to Weather Clothing Wizard</h1>
+              </div>
+              <div class="col-md-12" style="margin-bottom: 25px">
+                <img class="animated infinite bounce" src="Assets/images/wizard.png" width="500" height="500">
+              </div>
+              <div class="col-md-12" >
+                <p class="lead">
+                  <a href="#" class="btn btn-lg btn-default" id="begin-wizard">Get started</a>
+                </p>
+              </div>
+            </div>
+            
+          </div>
+
+
+        </div>
+
       </div>
-<div class="container" id="signin">
 
-<div class="row" style="margin-top:5px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form role="form" id="contact" method="post" action="">
-            <fieldset>
-                <h2>Initial Setup</h2>
-                <hr class="colorgraph">
-
-                <!-- Name -->
-                <div class="form-group">
-                <label class="control-label" for="name">Name</label>
-                <div class="form-group">
-                    <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Enter your Name" required value=""/>  
-                </div>
-                
-                <!-- Zipcode -->
-                 <div class="form-group">
-                 <label class="control-label" for="Zipcode">Zipcode</label>
-                <div class="form-group">
-                    <input type="text" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Enter your Zipcode" required value="" pattern="^[0-9]{5}(?:-[0-9]{4})?$"/>
-                </div>
-
-                <!-- Gender -->
-                <div class="form-group">
-                 <label class="control-label" for="Gender">Gender</label>
-                 <div class="form-group">
-                    <select  class="form-control" name="title" id="gender" required>
-                    <option value="">Select One</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                </div>
-               
-                 
-
-                <hr class="colorgraph">
-                <div class="row">
-                <div class="col-sm-4"></div>
-                    <div class="col-xs-6 col-sm-6 col-md-4">
-                        <!-- <a href="#" type="submit" class="btn btn-lg btn-primary btn-block" id="addUser" value="Submit"></a> -->
-                        <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block" id="addUser"/>
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-            </fieldset>
-        </form>
     </div>
-</div>
-
-</div>
-</div>
-<script>
 
 
-$(document).ready(function() {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="Assets/js/bootstrap.min.js"></script>
 
-    $("#contact").on("submit", function() {
-    return false;
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        $("#contact").on("submit", function() {
+            return false;
+        });
+
+        // Capture Button Click
+        $("#begin-wizard").on("click", function() {
+
+            window.location.href = "login.html";
+     
+        });
     });
-
-    // Capture Button Click
-    $("#addUser").on("click", function() {
-
-        // Capture User Inputs and store into variables
-        var name = $('#name').val().trim();
-        var zipcode = $('#zipcode').val().trim(); 
-        var gender = $('#gender').val(); 
-       
-        // Valide User Inputs
-
-        // Console log each of the user inputs to confirm you are receiving them
-        console.log(name);
-        console.log(zipcode);
-        console.log(gender);
-
-        // < -----------------------------------------------------------
-        if (name != null && name != "" && name != undefined && zipcode != null && zipcode != "" && zipcode != undefined && gender != null && gender != "" && gender != undefined)
-            {
-        
-
-        // Clear localStorage
-        localStorage.clear();
-
-        // Store all content into localStorage
-        localStorage.setItem("name", name); 
-        localStorage.setItem("zipcode", zipcode);
-        localStorage.setItem("gender", gender);
-        // < -----------------------------------------------------------
-    
-
-
-     window.location.href = 'Weather_Clothing_Wizard.html'
-    }  
-    });
-    });
-
-
-</script>
-
-
-
-
-</body>
+    </script>
+  </body>
 </html>
+
+<!-- Localized -->
