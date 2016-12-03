@@ -6,6 +6,28 @@
 $(document).ready(function()
 
 {	
+	// -----------------------------------------------
+		// jquery for the greeting 
+		var now = new Date();
+		var hours = now.getHours();
+		var msg;
+		
+
+		var storedName = localStorage.getItem("name");
+
+		//Capitalize first letter in string
+
+		String.prototype.capitalize = function() 
+		{
+			return this.charAt(0).toUpperCase() + this.slice(1);
+		};
+
+		if (hours < 12) msg = "Good Morning ";
+		else if (hours < 18) msg = "Good Afternoon ";
+		else msg = "Good Evening " + name;
+		$('#time').html(msg + storedName.capitalize() + "!");
+
+
 	//localStorage.getItem("gender", "female")
 
 	localStorage.getItem("zipcode")
@@ -171,6 +193,9 @@ $(document).ready(function()
 
 		//empty weather and clothing divs before adding data to them
 		$("#weatherHolder").empty();
+
+		$('#greetingDisplay').empty();
+		
 		$(".umbrella").empty();
 		$('.clothing_tops').empty();
 		$('.clothing_bottoms').empty();

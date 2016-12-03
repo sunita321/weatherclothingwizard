@@ -130,3 +130,18 @@ font-family: 'Molengo', sans-serif;
 font-size: 25px;
 
 }
+
+/*Css for greeting*/
+
+#time {
+font-family: georgia, serif;
+text-align: center;
+color: white;
+margin-top: 90px;
+font-size: 40px;
+}
+
+p{
+color: white;
+text-align: center;
+}
