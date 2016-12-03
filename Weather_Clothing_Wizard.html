@@ -10,7 +10,10 @@
   <title>Weather Clothing Wizard</title>
 </head>
 <body>
+
 <div class="container-fluid">
+
+<div>
       
       <div class="jumbotron" id="header">
      	<h1>Weather Clothing Wizard</h1>
@@ -66,40 +69,42 @@
  </form>
 
       <!-- TEXT FIELD & Submit Button Ends-->
-      <div class="member"><a href="index.html">New user? </a></div>
+      <div class="member"><a href="login.html">New user? </a></div>
       </div><!-- /.navbar-collapse -->
     </div> 
   </nav>    
 </div>
 
+<div class="row">
 
-  <div class="container-fluid" id="greetingDisplay">
+    <div id="greetingDisplay" class="col-md-12">
       <div id="time">
         <p>+msg+</p>
       </div>
-  </div>
+    </div>
+    <div id="clothingResults" class="col-md-8">
+          <div class="category_tops" ></div>
+          <div class="clothing_tops" ></div>
+          <div class="category_bottoms" ></div>
+          <div class="clothing_bottoms" ></div>
+          <div class="category_jackets"></div>
+          <div class="clothing_jackets"></div>
+          <div class="category_umbrella"></div>
+          <div class="umbrella"></div>
+    </div>
 
-<div class="container-fluid" id="clothingResults">
+    <div  id="weatherHolder" class="col-md-4" style="margin: auto;text-align: center;">
+      
+    </div>
 
+</div>
+</div>
 
-  <!-- Retrieved Data will be dumped here -->
-
-  <div class="category_tops"></div>
-  <div class="clothing_tops"></div>
-  <div class="category_bottoms"></div>
-  <div class="clothing_bottoms"></div>
-  <div class="category_jackets"></div>
-  <div class="clothing_jackets"></div>
-  <div class="category_umbrella"></div>
-  <div class="umbrella"></div>
-
-  
 
 
 </div>
 
-<div class="container-fluid" id="weatherHolder"></div>
-</div>
+
 	
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
