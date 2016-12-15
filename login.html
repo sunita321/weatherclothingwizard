@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body {
+        style="background:url(http://eskipaper.com/images/evening-background-1.jpg);
+        
+        background-size: 2000px 1070px;
+        background-repeat: no-repeat;
+        padding-bottom: 0px;
+        background-attachment: fixed;    
+        color: white;
+        })">
+
+
+<div class="container-fluid">
+<div class="jumbotron" id="header" style="text-align: center;
+    background-color: black;
+    color: white;
+    font-family: Georgia,serif;margin: 2px;">
+         <h1>Weather Clothing Wizard</h1>
+      </div>
+<div class="container" id="signin">
+
+<div class="row" style="margin-top:5px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form role="form" id="contact" method="post" action="">
+            <fieldset>
+                <h2>Initial Setup</h2>
+                <hr class="colorgraph">
+
+                <!-- Name -->
+                <div class="form-group">
+                <label class="control-label" for="name">Name</label>
+                <div class="form-group">
+                    <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Enter your Name" required value=""/>  
+                </div>
+                
+                <!-- Zipcode -->
+                 <div class="form-group">
+                 <label class="control-label" for="Zipcode">Zipcode</label>
+                <div class="form-group">
+                    <input type="text" name="zipcode" id="zipcode" class="form-control input-lg" placeholder="Enter your Zipcode" required value="" pattern="^[0-9]{5}(?:-[0-9]{4})?$"/>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                 <label class="control-label" for="Gender">Gender</label>
+                 <div class="form-group">
+                    <select  class="form-control" name="title" id="gender" required>
+                    <option value="">Select One</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                </div>
+               
+                 
+
+                <hr class="colorgraph">
+                <div class="row">
+                <div class="col-sm-4"></div>
+                    <div class="col-xs-6 col-sm-6 col-md-4">
+                        <!-- <a href="#" type="submit" class="btn btn-lg btn-primary btn-block" id="addUser" value="Submit"></a> -->
+                        <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block" id="addUser"/>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+</div>
+</div>
+<script>
+
+
+$(document).ready(function() {
+
+    $("#contact").on("submit", function() {
+    return false;
+    });
+
+    // Capture Button Click
+    $("#addUser").on("click", function() {
+
+        // Capture User Inputs and store into variables
+        var name = $('#name').val().trim();
+        var zipcode = $('#zipcode').val().trim(); 
+        var gender = $('#gender').val(); 
+       
+        // Valide User Inputs
+
+        // Console log each of the user inputs to confirm you are receiving them
+        console.log(name);
+        console.log(zipcode);
+<<<<<<< HEAD:signin.html
+
+    //     $("#contact-form").valid({
+    //     rules: {
+    //     name: {
+    //         minlength: 2,
+    //         required: true
+    //     },
+    //     zipcode: {
+    //         minlength: 5,
+    //         required: true
+    //     }
+    // },
+    // highlight: function (element) {
+    //     $(element).closest('.form-control').removeClass('success').addClass('error');
+    // },
+    // success: function (element) {
+    //     element.text('OK!').addClass('valid')
+    //         .closest('.form-control').removeClass('error').addClass('success');
+    // }
+    });
+
+
+       
+=======
+        console.log(gender);
+>>>>>>> master:login.html
+
+        // < -----------------------------------------------------------
+        if (name != null && name != "" && name != undefined && zipcode != null && zipcode != "" && zipcode != undefined && gender != null && gender != "" && gender != undefined)
+            {
+        
+
+        // Clear localStorage
+        localStorage.clear();
+
+        // Store all content into localStorage
+        localStorage.setItem("name", name); 
+        localStorage.setItem("zipcode", zipcode);
+        localStorage.setItem("gender", gender);
+        // < -----------------------------------------------------------
+    
+
+
+     window.location.href = 'Weather_Clothing_Wizard.html'
+    }  
+    });
+    };
+
+
+</script>
+
+
+
+
+</body>
+</html>
