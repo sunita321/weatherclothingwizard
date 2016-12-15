@@ -4,6 +4,9 @@
 //var gender;
 
 $(document).ready(function()
+<<<<<<< HEAD
+{
+=======
 
 {	
 	// -----------------------------------------------
@@ -38,6 +41,7 @@ $(document).ready(function()
 	console.log("Starting temp " + temp);
 	
 	console.log("Starting forecast " + forecast);
+>>>>>>> master
 	
 	//variable for dynamically created div to hold current weather conditions
 	var currentHolder = $("<div class='panel' id='currentHolder'>");
@@ -96,6 +100,23 @@ $(document).ready(function()
 			//define variables for returned data-------------------
 
 			var tempData = currentResponse.current_observation.temp_f;
+<<<<<<< HEAD
+
+			var feelsLike = currentResponse.current_observation.feelslike_f;
+
+			var currentIcon = currentResponse.current_observation.icon_url;
+
+			//add gathered data to divs---------------
+
+			$(currentHolder).html("<h3>Current Conditions for " + localZipcode + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + tempData + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
+
+			$("#weatherHolder").prepend(currentHolder);
+			//add current temp to currentHolder div as data 
+			$("#currentHolder").data("temp", tempData);
+			//create variable for temp data from div
+			var temp = $("#currentHolder").data("temp");
+			console.log(temp);
+=======
 
 			var feelsLike = currentResponse.current_observation.feelslike_f;
 
@@ -113,6 +134,7 @@ $(document).ready(function()
 			console.log(temp);
 
 			clothesFunction();
+>>>>>>> master
 		
 		});
 		
@@ -162,6 +184,23 @@ $(document).ready(function()
 			
 			$("#forecastHolder").data("forecast", forecastData);
 			
+<<<<<<< HEAD
+			var forecast = $("#forecastHolder").data("forecast");
+			console.log(forecast);
+		});
+
+	};
+	
+//on click event for user input------------------
+
+	$("#wizard-search").on("click", function()
+	{
+		//empty weather and clothing divs before adding data to them
+		$("#weatherHolder").empty();
+		$("#displayClothing").empty();
+
+		//define variables for on click event ----------------------
+=======
 			forecast = $("#forecastHolder").data("forecast");
 			console.log("ending forecast1 " + forecast);
 
@@ -1084,6 +1123,7 @@ function wizardWomanBusiness()
 		$('.category_jackets').empty();
 		$('.category_tops').empty();
 		$('.category_bottoms').empty();
+>>>>>>> master
 
 		
 		
@@ -1099,6 +1139,10 @@ function wizardWomanBusiness()
 		var inputZipcode = $("#zip-form").val();
 		console.log(inputZipcode);
 
+<<<<<<< HEAD
+		var inputZipcode = $("#zip-form").val();
+=======
+>>>>>>> master
 		
 		//define functions needed within on click event--------------------
 
@@ -1140,6 +1184,14 @@ function wizardWomanBusiness()
 
 					$("#currentHolder").data("temp", tempData);
 
+<<<<<<< HEAD
+					var temp = $("#currentHolder").data("temp");
+					console.log(temp);
+					// $("body").append(weatherHolder);
+				});
+
+			} else 
+=======
 					temp = $("#currentHolder").data("temp");
 					console.log("ending temp " + temp);
 					// $("body").append(weatherHolder);
@@ -1150,11 +1202,20 @@ function wizardWomanBusiness()
 			} 
 
 			else 
+>>>>>>> master
 			{
 				displayCurrent();
 			}
 
+<<<<<<< HEAD
+			//Clothing functions.
+			// wizardManBusiness();
+			// wizardManCasual();
+			// wizardWomanCasual();
+			// wizardWomanBusiness();
+=======
 	
+>>>>>>> master
 		
 		};
 
@@ -1217,6 +1278,14 @@ function wizardWomanBusiness()
 
 					$("#forecastHolder").data("forecast", forecastData);
 
+<<<<<<< HEAD
+					var forecast = $("#forecastHolder").data("forecast");
+					console.log(forecast);
+
+				});
+			
+			} else 
+=======
 					forecast = $("#forecastHolder").data("forecast");
 					console.log("ending forecast " + forecast);
 
@@ -1228,13 +1297,22 @@ function wizardWomanBusiness()
 			} 
 
 			else 
+>>>>>>> master
 			{
 				displayForecast();
 
 			}
 
+<<<<<<< HEAD
+			//clothing functions
+			// wizardManBusiness();
+			// wizardManCasual();
+			// wizardWomanCasual();
+			// wizardWomanBusiness();
+=======
 			///
 
+>>>>>>> master
 		
 		};
 
@@ -1247,9 +1325,14 @@ function wizardWomanBusiness()
 
 
 
+<<<<<<< HEAD
+	// console.log(temp);
+	// console.log(forecast);
+=======
+>>>>>>> master
 
 		return false;
-	})
+	});
 
 });
 

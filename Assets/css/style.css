@@ -52,11 +52,16 @@ body {
 
 #forecastHolder {
 	top: 550px;
+<<<<<<< HEAD
+	width: 100%;
+	height: 275px;
+=======
 	width: 25%;
 	height: 250px;
 	position: absolute;
     right: 15px;
 
+>>>>>>> master
 	overflow: hidden;
 
 	overflow: auto;
