@@ -1,186 +1,19 @@
-//var temp;
-//var forecast;
-//var occasion;
-//var gender;
-
-$(document).ready(function()
-
-{	
-	// -----------------------------------------------
-		// jquery for the greeting 
-		var now = new Date();
-		var hours = now.getHours();
-		var msg;
-		
-
-		var storedName = localStorage.getItem("name");
-
-		//Capitalize first letter in string
-
-		String.prototype.capitalize = function() 
-		{
-			return this.charAt(0).toUpperCase() + this.slice(1);
-		};
-
-		if (hours < 12) msg = "Good Morning ";
-		else if (hours < 18) msg = "Good Afternoon ";
-		else msg = "Good Evening " + name;
-		$('#time').html(msg + storedName.capitalize() + "!");
-
-
-	//localStorage.getItem("gender", "female")
-
-	localStorage.getItem("zipcode")
-
-	gender = localStorage.getItem("gender");
-	console.log(gender);
-
-	console.log("Starting temp " + temp);
-	
-	console.log("Starting forecast " + forecast);
-	
-	//variable for dynamically created div to hold current weather conditions
-	var currentHolder = $("<div class='panel' id='currentHolder'>");
-	
-	//variable for dynamically created div to hold weather forecast
-	var forecastHolder = $("<div class='panel' id='forecastHolder'>");
-	
-	//variable for zipcode data from local storage
-	var localZipcode = localStorage.getItem("zipcode");
- 	
- 	//weather underground API key
-	var apiKey = "3f8d0b47644220a7"
-	
-	//array containing both query options for API call
-	var weatherRequest = ["conditions", "forecast"];
-	
-	//URL for current weather conditions API call from weatherunderground
-	var currentURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + localZipcode + ".json";
-	
-	//URL for forecasted weather API call from weatherunderground
-	var forecastURL = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + localZipcode + ".json";
-	
-	//variable for API current weather data request
-	var currentRequest =
-	{
-		
-		url: currentURL,
-
-		method: "GET"
-	};
-	//variable for API forecasted weather data request
-	var forecastRequest =
-	{
-		
-		url: forecastURL,
-
-		method: "GET"
-	};
-
-	//variable for date and time
-	var now = new Date();
-
-	//variable for hours extracted from date and time
-	var hours = now.getHours();
-		
-//functions defined, ajax calls made-----------------------------------------
-
-	$("#weatherHolder").empty();
-
-	function displayCurrent()
-	{
-		$("#displayCurrent").empty();
-		//request current weather data from WeatherUnderground API
-		$.ajax(currentRequest).done(function(currentResponse) 
-		{
-			//define variables for returned data-------------------
-
-			var tempData = currentResponse.current_observation.temp_f;
-
-			var feelsLike = currentResponse.current_observation.feelslike_f;
-
-			var currentIcon = currentResponse.current_observation.icon_url;
-
-			//add gathered data to divs---------------
-
-			$(currentHolder).html("<h3>Current Conditions for " + localZipcode + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + tempData + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
-
-			$("#weatherHolder").prepend(currentHolder);
-			//add current temp to currentHolder div as data 
-			$("#currentHolder").data("temp", tempData);
-			//create variable for temp data from div
-			temp = $("#currentHolder").data("temp");
-			console.log(temp);
-
-			clothesFunction();
-		
-		});
-		
-	};
-
-	function displayForecast()
-	{
-		$("#displayForecast").empty();
-		//request forecast data from WeatherUnderground API
-		$.ajax(forecastRequest).done(function(forecastResponse)
-		{
-			//define variables for returned data-------------------
-
-			var dayIcon = forecastResponse.forecast.txt_forecast.forecastday[0].icon_url;
-
-			var dayIconImage = "<img src='" + dayIcon + "'>";
-
-			var nightIcon = forecastResponse.forecast.txt_forecast.forecastday[1].icon_url;
-
-			var nightIconImage = "<img src='" + nightIcon + "'>";
-
-			var forecastData = forecastResponse.forecast.txt_forecast.forecastday[0].icon;
-			
-			//condition for forecastData variable based on time of day
-			if (hours > 15)
-			{	
-				forecastData = forecastResponse.forecast.txt_forecast.forecastday[1].icon;
-			}
-
-			var now = new Date();
-			
-			var hours = now.getHours();
-			
-			var dayText = forecastResponse.forecast.txt_forecast.forecastday[0].fcttext;
-
-			var nightText = forecastResponse.forecast.txt_forecast.forecastday[1].fcttext; 
-
-			var dayTitle = forecastResponse.forecast.txt_forecast.forecastday[0].title;
-
-			var nightTitle = forecastResponse.forecast.txt_forecast.forecastday[1].title;
-
-			//add gathered data to divs-----------------------
-
-			$(forecastHolder).html("<h3>Forecast:</h3>" + "<b>" + dayTitle + "</b>" + dayIconImage + dayText + "<br>" + "<b>" + nightTitle + "</b>" + nightIconImage + nightText);
-			
-			$("#weatherHolder").append(forecastHolder);
-			
-			$("#forecastHolder").data("forecast", forecastData);
-			
-			forecast = $("#forecastHolder").data("forecast");
-			console.log("ending forecast1 " + forecast);
-
-			clothesFunction();
-		});
-
-	};
-
-	function clothesFunction()
-	{
-
-		// This is our API Key
+// This is our API Key
     var ShopStyleAPIKey = "uid7169-36888263-28";
     var clothingImage_top = "";
     var clothingImage_bottom = "";
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
+    var temp;
 
+    var forecast ;
+
+    var occasion;
+
+    var gender;
+
+    
     //***********Women Clothes****************
 
     function displayWomenJackets()
@@ -188,7 +21,11 @@ $(document).ready(function()
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jackets&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -206,8 +43,8 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+         $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
         }
 
     
@@ -220,7 +57,11 @@ $(document).ready(function()
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+coat&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -238,8 +79,13 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+         
+          //$(".clothing_jackets").append(clothingImage_jacket);
+
         }
 
     
@@ -252,7 +98,11 @@ $(document).ready(function()
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+snow+boots&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -270,8 +120,11 @@ $(document).ready(function()
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
+
+           $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
 
           
 
@@ -287,7 +140,11 @@ $(document).ready(function()
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+business+blouse&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -307,8 +164,12 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -321,7 +182,11 @@ $(document).ready(function()
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+dress-pants&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -341,8 +206,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -355,7 +223,11 @@ $(document).ready(function()
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=womens-tops&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -375,8 +247,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -389,7 +264,11 @@ $(document).ready(function()
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+jeans&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -409,8 +288,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -423,7 +305,11 @@ $(document).ready(function()
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=women+shorts&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -443,8 +329,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -460,7 +349,11 @@ $(document).ready(function()
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+jackets&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -480,8 +373,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -495,7 +391,11 @@ $(document).ready(function()
       $(".clothing_jackets").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+coats&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -515,8 +415,11 @@ $(document).ready(function()
           //Transfer content to HTML
           clothingImage_jacket = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_jacket);
-          clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
-          $(".clothing_jackets").append(clothingImage_jacket);
+
+          $("<img />").attr("src", clothingImage_jacket).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_jackets"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_jacket = $("<img>").attr("src", clothingImage_jacket); //Passes still image link to the image src
+          //$(".clothing_jackets").append(clothingImage_jacket);
         }
 
     
@@ -529,7 +432,11 @@ $(document).ready(function()
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=snow+boots+men&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -547,8 +454,11 @@ $(document).ready(function()
           //Transfer content to HTML
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
     
@@ -557,11 +467,17 @@ $(document).ready(function()
     }
 
     function displayMenTopsBusiness()
+
+
     {
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+shirts&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -580,8 +496,11 @@ $(document).ready(function()
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+           $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -589,12 +508,16 @@ $(document).ready(function()
 
     }
 
-        function displayMenPantsBusiness()
+    function displayMenPantsBusiness()
     {
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+dress+pants+business&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -613,8 +536,11 @@ $(document).ready(function()
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+          $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -627,7 +553,11 @@ $(document).ready(function()
       $(".clothing_tops").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+tops&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -646,8 +576,11 @@ $(document).ready(function()
         {
           clothingImage_top = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_top);
-          clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
-          $(".clothing_tops").append(clothingImage_top);
+
+          $("<img />").attr("src", clothingImage_top).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_tops"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_top = $("<img>").attr("src", clothingImage_top); //Passes still image link to the image src
+          //$(".clothing_tops").append(clothingImage_top);
         }
 
     
@@ -660,7 +593,11 @@ $(document).ready(function()
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+pants&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -679,8 +616,11 @@ $(document).ready(function()
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -693,7 +633,11 @@ $(document).ready(function()
       $(".clothing_bottoms").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=men+shorts&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -712,8 +656,11 @@ $(document).ready(function()
         {
           clothingImage_bottom = response.products[i].image.sizes.IPhone.url;
           console.log(clothingImage_bottom);
-          clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
-          $(".clothing_bottoms").append(clothingImage_bottom);
+
+           $("<img />").attr("src", clothingImage_bottom).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".clothing_bottoms"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //clothingImage_bottom = $("<img>").attr("src", clothingImage_bottom); //Passes still image link to the image src
+          //$(".clothing_bottoms").append(clothingImage_bottom);
         }
 
     
@@ -723,12 +670,16 @@ $(document).ready(function()
 
     //***********Umbrellas****************
 
-        function displayMENUmbrella()
+    function displayMENUmbrella()
     {
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=mens+hand+umbrella&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -738,25 +689,23 @@ $(document).ready(function()
 
       //Transfer content to HTML
       
-
-
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Men's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
 
-          //URL
-          var umbrellaLink = response.products[i].clickUrl;
-          console.log("LINK " + umbrellaLink);
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
 
+          
           
 
         }
@@ -771,7 +720,11 @@ $(document).ready(function()
       $(".umbrella").empty();
 
       // Here we are building the URL we need to query the database
-      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=5";
+<<<<<<< HEAD
+      var queryURLShop = "https://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=4";
+=======
+      var queryURLShop = "http://api.shopstyle.com/api/v2/products?pid=uid7169-36888263-28&fts=umbrella&offset=0&limit=4";
+>>>>>>> 293f0f6ea111c727327ffec1f9a2004f3df01e52
       // Log the queryURLShop
       console.log(queryURLShop);
 
@@ -786,15 +739,18 @@ $(document).ready(function()
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) 
       {
-        $('.category_umbrella').html("Category: " + response.metadata.category.fullName);
+        $('.category_umbrella').html("Category: Women's Umbrellas" );
         // Log the resulting object
         console.log(response);
         for (i=0; i < response.products.length; i++) 
         {
           umberellaImage = response.products[i].image.sizes.IPhone.url;
           console.log(umberellaImage);
-          var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
-          $(".umbrella").append(umberellaImage);
+
+          $("<img />").attr("src", umberellaImage).appendTo($('<a />').attr({ href: response.products[i].clickUrl}).appendTo($(".umbrella"))); //Passes still image link to the image src
+          console.log(response.products[i].clickUrl);
+          //var umberellaImage = $("<img>").attr("src", umberellaImage); //Passes still image link to the image src
+          //$(".umbrella").append(umberellaImage);
         }
 
            
@@ -1050,207 +1006,26 @@ function wizardWomanBusiness()
 
 }
 
-		if (forecast != undefined && temp != undefined)
-		{
-			console.log("Run Sunita Code!!! :)");
-			console.log("forecast==" + forecast + "  temp==" + temp);
-			Sunita();
-
-
-		}
-	}
-	
-//on click event for user input------------------
-
-
-
-
-	$("#wizard-search").on("click", function()
-	{
-		forecast = undefined;
-		temp = undefined;
-
-		//empty weather and clothing divs before adding data to them
-		$("#weatherHolder").empty();
-
-		$('#greetingDisplay').empty();
-		
-		$(".umbrella").empty();
-		$('.clothing_tops').empty();
-		$('.clothing_bottoms').empty();
-		$(".clothing_jackets").empty();
-
-		$('.category_umbrella').empty();		
-		$('.category_jackets').empty();
-		$('.category_tops').empty();
-		$('.category_bottoms').empty();
-
-		
-		
-
-		
-
-		//define variables for on click event ----------------------
-
-		occasion = $('#occasion-input').val();
-		console.log(occasion);
-
-		
-		var inputZipcode = $("#zip-form").val();
-		console.log(inputZipcode);
-
-		
-		//define functions needed within on click event--------------------
-
-		function displayCurrentWithInput() 
-		{
-			$("#displayCurrent").empty();
-
-			//run code as long as input field is not blank
-			if (inputZipcode != "" && inputZipcode != null && inputZipcode != undefined) 
-			{
-
-				var currentURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[0] + "/q/" + inputZipcode + ".json";
-
-				//created variable for API data request to be made
-				var currentRequestWithInput =
-				{
-					url: currentURLwithInput,
-
-					method: "GET"
-				};
-
-				$.ajax(currentRequestWithInput).done(function(currentResponseWithInput)
-				{
-					
-					//define variables for returned data-------------------
-					
-					var tempData = currentResponseWithInput.current_observation.temp_f;
-					console.log(tempData)
-					
-					var feelsLike = currentResponseWithInput.current_observation.feelslike_f;
-					
-					var currentIcon = currentResponseWithInput.current_observation.icon_url;
-
-					//add gathered data to divs-----------------------
-
-					$(currentHolder).html("<h3>Current Conditions for " + inputZipcode + ":</h3><br>" + "<img src='" + currentIcon + "'>" + "<h2>" + tempData + "</h2>" + "<h4>(Feels like " + feelsLike + ")</h4>");
-					
-					$("#weatherHolder").prepend(currentHolder);
-
-					$("#currentHolder").data("temp", tempData);
-
-					temp = $("#currentHolder").data("temp");
-					console.log("ending temp " + temp);
-					// $("body").append(weatherHolder);
-
-					clothesFunction();
-				});
-
-			} 
-
-			else 
-			{
-				displayCurrent();
-			}
-
-	
-		
-		};
-
-		function displayForecastWithInput() 
-		{
-			$("#displayForecast").empty();
-
-			//run code as long as input field is not blank
-			if (inputZipcode != null && inputZipcode != "" && inputZipcode != undefined)
-			{
-				
-				var forecastURLwithInput = "https://api.wunderground.com/api/" + apiKey + "/" + weatherRequest[1] + "/q/" + inputZipcode + ".json";
-
-				var forecastRequestWithInput = 
-				{
-					url: forecastURLwithInput,
-					
-					method: "GET"
-				};
-
-				//request forecast data from WeatherUnderground API
-				$.ajax(forecastRequestWithInput).done(function(forecastResponseWithInput)
-				{
-
-					//define variables for returned data-------------------
-
-					var dayIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon_url;
-
-					var dayIconImage = "<img src='" + dayIcon + "'>";
-
-					var forecastData = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].icon;
-
-					//condition for forecastData variable based on time of day
-					if (hours > 15)
-					{
-						forecastData = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon;
-					}
-
-					var now = new Date();
-
-					var hours = now.getHours();
-
-					var nightIcon = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].icon_url;
-
-					var nightIconImage = "<img src='" + nightIcon + "'>";
-
-					var dayTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].title;
-
-					var nightTitle = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].title;
-
-					var dayText = forecastResponseWithInput.forecast.txt_forecast.forecastday[0].fcttext;
-
-					var nightText = forecastResponseWithInput.forecast.txt_forecast.forecastday[1].fcttext;
-
-					//add gathered data to divs-----------------------
-
-					$(forecastHolder).html("<h3>Forecast:</h3><br>" + "<b>" + dayTitle + "</b>" + dayIconImage + dayText + "<br>" + "<b>" + nightTitle + "</b>" + nightIconImage + nightText);
-
-					$("#weatherHolder").append(forecastHolder);
-
-					$("#forecastHolder").data("forecast", forecastData);
-
-					forecast = $("#forecastHolder").data("forecast");
-					console.log("ending forecast " + forecast);
-
-					clothesFunction();
-
-
-				});
-			
-			} 
-
-			else 
-			{
-				displayForecast();
-
-			}
-
-			///
-
-		
-		};
-
-		displayCurrentWithInput();
-		displayForecastWithInput();
-		console.log("ending forecast2 " + forecast);
-
-
-
-
-
-
-
-		return false;
-	})
-
-});
-
-
+//wizardWomanBusiness();
+
+//********************Gender and Occasion*************************
+function Sunita()
+{
+
+  if (gender == "male" && occasion == "business")
+  {
+    wizardManBusiness();
+  }
+  else if (gender == "male" && occasion == "casual")
+  {
+    wizardManCasual();
+  }
+  else if (gender == "female" && occasion == "business")
+  {
+    wizardWomanBusiness();
+  }
+  else if (gender == "female" && occasion == "casual")
+  {
+    wizardWomanCasual();
+  }
+}

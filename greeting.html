@@ -3,6 +3,7 @@
 <head>
 	<title>Greeting work</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="icon" href="favicon.ico">
 
 	<style type="text/css">
 		
@@ -28,9 +29,14 @@
 			margin: 2px;
 			}
 
-.member{
-	float: right;
-}
+		.member{
+			float: right;
+		}
+		p{
+			color: white;
+			text-align: center;
+		}
+		
 	
 	</style>
 		
@@ -52,8 +58,11 @@
 	<div class="container">
 			<div id="time">
 				<p>+msg+</p>
+
+
 			</div>
 		</div>	
+		<p>Click Anywhere To Continue</p>
 
 
 
@@ -88,25 +97,27 @@
 		var msg;
 		
 
-
-		var name = "";
-	 	localStorage.setItem("name", name);
 		var storedName = localStorage.getItem("name");
+
+		//Capitalize first letter in string
+
+		String.prototype.capitalize = function() 
+		{
+			return this.charAt(0).toUpperCase() + this.slice(1);
+		};
 
 		if (hours < 12) msg = "Good Morning ";
 		else if (hours < 18) msg = "Good Afternoon ";
-		else msg = "Good Evening ";
-		$('#time').html(msg + storedName.toUpperCase() + "!");
+		else msg = "Good Evening " + name;
+		$('#time').html(msg + storedName.capitalize() + "!");
 
 		$('body').click(function(){
-			window.open('www.google.com');
+			window.location.href = 'Weahter_Clothing_Wizard.html'
 			
 		});
 			
 		
-		
-		
-		
+
 
 			
       
