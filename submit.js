@@ -149,10 +149,10 @@ $(document).ready(function()
     var clothingImage_jacket = "";
     var umberellaImage = "";
 
-    var temp = 44;
+    // var temp = 44;
 
 
-    var forecast = "rain";
+    // var forecast = "rain";
 
     //var occasion = "business";
 
