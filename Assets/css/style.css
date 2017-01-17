@@ -2,7 +2,7 @@
 
 body {
 	background: url(http://eskipaper.com/images/evening-background-1.jpg);
-	background-size: 2000px 1070px;
+	background-size: cover;
 	background-repeat: no-repeat;
 	padding-bottom: 0px;
 	background-attachment: fixed;
